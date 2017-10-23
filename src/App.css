@@ -4,3 +4,29 @@
   position: fixed;
   background-color:#e9e9e9
 }
+.uk-table td {
+  padding: 0px 10px;
+}
+
+.caption-style {
+  border-top: solid #000 1px;
+  padding: 10px 10px;
+}
+
+.test {
+  margin-left: 200px;
+  top:20px
+}
+
+.uk-card-body {
+  padding: 0px 30px
+}
+.order-details {
+  font-size: 30px;
+
+}
+/* TICKET STYLE */
+.ticket-header {
+  font-weight: 700 !important;
+  color:#000 !important
+}

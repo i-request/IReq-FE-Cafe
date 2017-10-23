@@ -13,6 +13,7 @@ class App extends Component {
           order_num: 10,
           order_complete: false,
           order_viewed: false,
+          paid: false,
           order_content: [ //user order (basket content)
           {//ITEM 1
               item: {
@@ -35,8 +36,12 @@ class App extends Component {
             price: 1
           }
         ],//CLOSE ORDER CONTENT
+        additional_instructions: {
+          message: 'test message'
+        },
         user_details : {
             id : 1, //user id
+            user_name: "Jonathan Ward",
             email : "jonathan@forwardmarketingonline.co.uk", //user email
             phone_num : "01617991075", //user contact number
             user_company : "co-op", //user company
