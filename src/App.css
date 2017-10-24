@@ -9,8 +9,8 @@
 }
 
 .caption-style {
-  border-top: solid #000 1px;
-  padding: 10px 10px;
+  border-top: solid #428bca 1px;
+  padding: 5px 5px;
 }
 
 .test {
@@ -22,11 +22,45 @@
   padding: 0px 30px
 }
 .order-details {
-  font-size: 30px;
+  font-size: 20px;
 
 }
 /* TICKET STYLE */
 .ticket-header {
   font-weight: 700 !important;
   color:#000 !important
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap
+}
+
+.right {
+text-align:right;
+display:inline;
+float: right
+}
+
+.left {
+  text-align:left;
+  display:inline;
+}
+
+.card-header {
+  padding: 5px 10px;
+  padding-top: 5px;
+  padding-right: 10px;
+  padding-bottom: 15px;
+  padding-left: 10px;
+  display:inline
+}
+
+.card-margin {
+  margin: 5px
+}
+
+.padded { 
+  padding: 5px
 }
