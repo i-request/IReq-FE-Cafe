@@ -1,67 +1,56 @@
-.nav-bar-style {
-  width:175px;
+body {
   height: 100vh;
-  position: fixed;
-  background-color:#e9e9e9
+  background-color:#f4f4f4
+}
+
+.nav-bar-style {
+  height:125px;
+  width: 100vw;
+  background-color:#d3d3d3;
+  display: fixed
+}
+
+.tickets {
+  min-width:20vw;
+  padding:30px;
+}
+
+.nav-items {
+  display: inline
 }
 .uk-table td {
   padding: 0px 10px;
 }
 
 .caption-style {
-  border-top: solid #428bca 1px;
-  padding: 5px 5px;
+  border-top: solid #000 1px;
+  padding: 10px 10px;
 }
 
-.test {
+.remove-padding-from-ticket {
   margin-left: 200px;
   top:20px
 }
 
+.nav-tabs {
+  width:100%;
+  list-style: none;
+}
+
+.ul-nav-style {
+  margin:0px;
+  padding:0px;
+  text-align: center;
+}
 .uk-card-body {
   padding: 0px 30px
 }
 .order-details {
-  font-size: 20px;
+  font-size: 30px;
 
 }
 /* TICKET STYLE */
 .ticket-header {
   font-weight: 700 !important;
   color:#000 !important
-}
-
-.flex-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap
-}
-
-.right {
-text-align:right;
-display:inline;
-float: right
-}
-
-.left {
-  text-align:left;
-  display:inline;
-}
-
-.card-header {
-  padding: 5px 10px;
-  padding-top: 5px;
-  padding-right: 10px;
-  padding-bottom: 15px;
-  padding-left: 10px;
-  display:inline;
-  background-color:#e9e9e9
-}
-
-.card-margin {
-  margin: 5px
-}
-
-.padded { 
-  padding: 5px
 }

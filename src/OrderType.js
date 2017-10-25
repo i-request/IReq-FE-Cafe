@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 
-class Admin extends Component {
+class OrderType extends Component {
   render( ) {
     return (
       <div>
-      <h1>Admin</h1>
+      <h1>OrderType</h1>
       </div>
     )
   }
 }
-export default Admin
+export default OrderType
