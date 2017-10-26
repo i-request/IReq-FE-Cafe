@@ -8,71 +8,75 @@ class Admin extends Component {
       <section className='container'>
       <form>
   <div className="form-group">
-    <label for="productSearch">Product</label>
-    <input type="email" className="form-control" id="productSearch" aria-describedby="emailHelp" placeholder="Search for product"/>
-    <small id="emailHelp" className="form-text text-muted">We will never share your email with anyone else.</small>
+    <label for="productSearch">Search product</label>
+    <input type="text" className="form-control" id="productSearch" aria-describedby="emailHelp" placeholder="Type product here"/>
   </div>
-  <div className="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password"/>
-  </div>
-  <div className="form-group">
-    <label for="exampleSelect1">Example select</label>
-    <select className="form-control" id="exampleSelect1">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
+
+ <div className="row">
+     <div className="col-3">
+     <label for="productSearch">Or select: Drink or Food</label>
+     <select className="form-control" id="exampleSelect1">
+      <option>Drink</option>
+      <option>Food</option>
     </select>
-  </div>
-  <div className="form-group">
-    <label for="exampleSelect2">Example multiple select</label>
-    <select multiple className="form-control" id="exampleSelect2">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
+     </div>
+     <div className="col-3">
+     <label for="productSearch">Hot or Cold</label>
+     <select className="form-control" id="hotOrCold">
+      <option>Hot</option>
+      <option>Cold</option>
     </select>
+     </div>
+     <div className="col-6">
+     <label for="productSearch">Select product from list</label>
+     <select className="form-control" id="hotDrink">
+      <option>Breakfast Tea (rg)</option>
+      <option>Latte (rg)</option>
+    </select>
+     </div>
   </div>
-  <div className="form-group">
-    <label for="exampleTextarea">Example textarea</label>
-    <textarea className="form-control" id="exampleTextarea" rows="3"></textarea>
-  </div>
-  <div className="form-group">
-    <label for="exampleInputFile">File input</label>
-    <input type="file" className="form-control-file" id="exampleInputFile" aria-describedby="fileHelp"/>
-    <small id="fileHelp" className="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
-  </div>
-  <fieldset className="form-group">
-    <legend>Radio buttons</legend>
-    <div className="form-check">
-      <label className="form-check-label">
-        <input type="radio" className="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked/>
-        Option one is this and that&mdash;be sure to include why it's great
-      </label>
-    </div>
-    <div className="form-check">
-    <label className="form-check-label">
-        <input type="radio" className="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2"/>
-        Option two can be something else and selecting it will deselect option one
-      </label>
-    </div>
-    <div className="form-check disabled">
-    <label className="form-check-label">
-        <input type="radio" className="form-check-input" name="optionsRadios" id="optionsRadios3" value="option3" disabled/>
-        Option three is disabled
-      </label>
-    </div>
-  </fieldset>
-  <div className="form-check">
-    <label className="form-check-label">
-      <input type="checkbox" className="form-check-input"/>
-      Check me out
+
+
+ <div className="form-group">
+  <label className="form-check-label">
+<input type="checkbox" className="form-check-input"/>
+In Stock
     </label>
+    <small id="stockHelp" className="form-text text-muted">Un-tick if out of stock.</small>
   </div>
-  <button type="submit" className="btn btn-primary">Submit</button>
+
+ <div className="row">
+  <div className="col-3">
+  <label for="currentDescription">Current product name</label>
+    <input type="text" className="form-control" id="oldName" aria-describedby="oldName" disabled placeholder="Current product name"/>
+  </div>
+  <div className="col-3">
+  <label for="currentPrice">Current price (in pence)</label>
+    <input type="number" className="form-control" id="oldPrice" aria-describedby="emailHelp" disabled placeholder="Current product price"/>
+  </div>
+  <div className="col-3">
+  <label for="newDescription">New name</label>
+  <input type="text" className="form-control" id="newName" aria-describedby="newName" placeholder="Type new name"/>
+  </div>
+  <div className="col-3">
+  <label for="newPrice">New price (in pence)</label>
+  <input type="number" className="form-control" id="newPrice" aria-describedby="emailHelp" placeholder="Type new price (in pence)"/>
+  </div>
+</div>
+<div>&nbsp;</div>
+<div className="row">
+  <div className="form-group col-6">
+    <label for="currentProductDescription">Current product description</label>
+    <textarea className="form-control" id="currentProductDescription" rows="3" placeholder="Current product description from server" disabled></textarea>
+  </div>
+
+ <div className="form-group col-6">
+    <label for="newProductDescription">New product description</label>
+    <textarea className="form-control" id="newProductDescription" rows="3" placeholder="New product description from server"></textarea>
+  </div>
+</div>
+
+ <button type="submit" className="btn btn-primary">Submit</button>
 </form>
 </section>
 </div>
