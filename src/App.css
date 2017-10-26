@@ -10,9 +10,21 @@ body {
   display: fixed
 }
 
+.test {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+    min-width: 20vw;
+}
+
+.test1 {
+  align-self: flex-end;
+}
+
 .tickets {
-  min-width:20vw;
-  padding:30px;
+  min-width: 20vw;
+  height:300px;
+  margin:10px
 }
 
 .nav-items {
