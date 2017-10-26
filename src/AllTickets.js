@@ -17,7 +17,7 @@ class AllTickets extends Component {
   componentDidMount() {
     this.fetchTickets()
   }
-  
+
   renderView(bool) {
     const colorClass = bool
       ? 'success'
@@ -26,7 +26,7 @@ class AllTickets extends Component {
       ? 'check'
       : 'times';
     return (
-      <button id='viewBtn' className={`btn btn-${colorClass}`}>Viewed
+      <button id='viewBtn' className={`btn viewed-done-btn btn-${colorClass}`}>Viewed
         <i className={`fa fa-${viewIcon}`} aria-hidden="true"></i>
       </button>
     );
@@ -41,38 +41,32 @@ class AllTickets extends Component {
       ? 'check'
       : 'times';
     return (
-      <button id='doneBtn' className={`btn btn-${doneColorClass}`}>Done
+      <button id='doneBtn' className={`btn viewed-done-btn btn-${doneColorClass}`}>Done
         <i className={`fa fa-${doneIcon}`} aria-hidden="true"></i>
       </button>
     );
 
   }
 
-  updateViewData(id) { 
+  updateViewData(id) {
     const trueId = id.toString()
-    return axios.put(`http://localhost:9007/tickets/${trueId}?isViewed=true`)
-      .then(res => {
+    return axios.put(`http://localhost:9007/tickets/${trueId}?isViewed=true`).then(res => {
       // console.log(res)
-      })
-      .catch(console.log)
+    }).catch(console.log)
   };
 
-  updateDoneData(id, bool) { 
+  updateDoneData(id, bool) {
     const trueId = id.toString()
-    return axios.put(`http://localhost:9007/tickets/${trueId}?isComplete=${bool}`)
-      .then(res => {
+    return axios.put(`http://localhost:9007/tickets/${trueId}?isComplete=${bool}`).then(res => {
       // console.log(res)
-      })
-      .catch(console.log)
+    }).catch(console.log)
   };
 
   fetchTickets() {
-    return axios.get('http://localhost:9007/tickets')
-      .then(res => {
+    return axios.get('http://localhost:9007/tickets').then(res => {
       // console.log(res)
       this.setState({tickets: res.data})
-      })
-      .catch(console.log)
+    }).catch(console.log)
   }
 
   handleViewed(orderNum) {
@@ -82,14 +76,12 @@ class AllTickets extends Component {
         if (item.order_num === orderNum) {
           item.isViewed = true
           t.updateViewData(item._id)
-       }
+        }
         return item;
       })
       this.setState({tickets: newState})
-   }
- }
-
-
+    }
+  }
 
   handleDone(orderNum) {
     const t = this;
@@ -105,7 +97,6 @@ class AllTickets extends Component {
     }
   }
 
-
   render() {
     return (
       <section className="container-fluid">
@@ -115,40 +106,34 @@ class AllTickets extends Component {
             return (
 
               <div className="card bg-light mb-3 tickets" key={i}>
-                <div className="card-header" key={i}><img className="rounded" width="40" height="40" alt='Company Logo' hspace="5" />
+                <div className="card-header" key={i}><img className="rounded" width="40" height="40" alt='Company Logo' hspace="5"/>
                   <span className="left align-top padded">{item.user_details.user_name}</span>
                   <span className="right">Order ID:
                     <strong>{item.order_num}</strong>
                   </span>
                 </div>
-                <div className="card-body test">
+                <div className="card-body viewed-done-flex-container">
                   <ul>
-                {item.order_content.map((ticket, index) => {
-                  return (
-                    <li className="card-text" key={index}>{ticket.name}</li>
-                  )
-                })}
-                    </ul>
-                  <div className="test1">
+                    {item.order_content.map((ticket, index) => {
+                      return (
+                        <li className="card-text" key={index}>{ticket.name}</li>
+                      )
+                    })}
+                  </ul>
+                  <div className="viewed-done-button-container">
                     <span id='viewBtn' onClick={this.handleViewed(item.order_num)}>{this.renderView(item.isViewed)}</span>
                     <span id="doneBtn" onClick={this.handleDone(item.order_num)}>{this.renderDone(item.isComplete)}</span>
-
                   </div>
                 </div>
-                </div>
+              </div>
 
+            )
+          })}
 
-
-
-
+        </div>
+      </section>
     )
   }
-)}
-
-</div>
-</section>
-)
-}
 }
 export default AllTickets
 

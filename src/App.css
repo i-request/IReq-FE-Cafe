@@ -10,19 +10,28 @@ body {
   display: fixed
 }
 
-.test {
+.viewed-done-flex-container {
   display: flex;
   flex-direction: column;
-  min-width: 20vw
+  min-width: 20vw;
 }
 
-.test1 {
+.viewed-done-button-container {
   margin-top: auto;
-  flex-grow: 1
+  padding-top:20px;
+  border-top: solid 1px #d3d3d3;
+}
+
+.viewed-done-btn {
+  width:46%;
+  border-radius:0px;
+  margin:4.9px
 }
 
 .tickets {
   min-width: 20vw;
+  justify-content: space-between;
+
   height:300px;
   margin:10px
 }
