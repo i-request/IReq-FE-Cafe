@@ -12,11 +12,11 @@ const NavBar = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
-          <li className="nav-item active">
-            <NavLink to="/" className="nav-link">
-                Admin
-            </NavLink>
-          </li>
+            <li className="nav-item active">
+              <NavLink to="/" className="nav-link">
+                Pending Tickets
+              </NavLink>
+            </li>
             <li className="nav-item active">
               <NavLink to='/all-tickets' className="nav-link">
                 All Tickets
@@ -33,13 +33,13 @@ const NavBar = () => {
               </NavLink>
             </li>
             <li className="nav-item active">
-              <NavLink to='/order-type' className="nav-link">
-                Order Type
+              <NavLink to='/trash' className="nav-link">
+                Trash
               </NavLink>
             </li>
             <li className="nav-item active">
-              <NavLink to='/trash' className="nav-link">
-                Trash
+              <NavLink to='/admin' className="nav-link">
+                Admin
               </NavLink>
             </li>
           </ul>
