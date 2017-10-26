@@ -107,7 +107,7 @@ class AllTickets extends Component {
             return (
 
               <div className="card bg-light mb-3 tickets" key={i}>
-                <div className="card-header" key={i}><img className="rounded" width="40" height="40" alt='Company Logo' hspace="5"/>
+                <div className="card-header" key={i}><img className="rounded" width="40" height="40" alt='Company Logo' />
                   <span className="left align-top padded">{item.user_details.user_name}</span>
                   <span className="right">Order ID:
                     <strong>{item.order_num}</strong>
