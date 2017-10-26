@@ -12,13 +12,13 @@ body {
 
 .test {
   display: flex;
-  align-items: center;
-  justify-content: center;
-    min-width: 20vw;
+  flex-direction: column;
+  min-width: 20vw
 }
 
 .test1 {
-  align-self: flex-end;
+  margin-top: auto;
+  flex-grow: 1
 }
 
 .tickets {
