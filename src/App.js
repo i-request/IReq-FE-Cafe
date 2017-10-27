@@ -26,7 +26,6 @@ class App extends Component {
             <Route path="/trash" component={Trash}/>
           </div>
         </Router>
-
     );
   }
 }

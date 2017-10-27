@@ -3,6 +3,14 @@ body {
   background-color:#f4f4f4
 }
 
+li {
+  list-style: none
+}
+
+p {
+  margin: 0px;
+}
+
 .nav-bar-style {
   height:125px;
   width: 100vw;
@@ -31,8 +39,7 @@ body {
 .tickets {
   min-width: 20vw;
   justify-content: space-between;
-
-  height:300px;
+  height:500px;
   margin:10px
 }
 
@@ -74,4 +81,45 @@ body {
 .ticket-header {
   font-weight: 700 !important;
   color:#000 !important
+}
+
+.remove-left-padding{
+ padding-left: 0px;
+}
+
+.remove-right-padding{
+ padding-left: 0px;
+ text-align: right
+}
+
+.extras {
+  background-color:#d3d3d3
+}
+
+.ticket-ul-style{
+  margin:0px;
+  padding:5px;
+}
+
+.ticket-order-header {
+  font-weight: bold;
+  border-bottom:solid #d3d3d3 2px;
+  margin-bottom:5px
+}
+
+.ticket-product-headers {
+  font-weight:700;
+}
+
+.ticket-user-details-header{
+  margin-top:10px;
+  font-weight:bold;
+  border-bottom:solid #d3d3d3 2px;
+  margin-bottom:5px
+}
+
+@media screen and (min-width: 480px) {
+    .image-role {
+        margin-left: -100px;
+    }
 }
