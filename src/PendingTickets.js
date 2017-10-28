@@ -24,8 +24,15 @@ class PendingTickets extends Component {
   };
 
   render() {
+    console.log(this.state.tickets)
     return (
-    <TicketList />
+      <div>
+      {this.state.tickets.map((ticket) => {
+          if(ticket.isComplete === false){
+            return <TicketList />
+          }
+      })}
+      </div>
     )
   }
 }

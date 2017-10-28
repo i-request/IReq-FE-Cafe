@@ -1,6 +1,6 @@
 body {
   height: 100vh;
-  background-color:#f4f4f4
+  background-color: #f4f4f4
 }
 
 li {
@@ -12,9 +12,9 @@ p {
 }
 
 .nav-bar-style {
-  height:125px;
+  height: 125px;
   width: 100vw;
-  background-color:#d3d3d3;
+  background-color: #d3d3d3;
   display: fixed
 }
 
@@ -26,19 +26,20 @@ p {
 
 .viewed-done-button-container {
   margin-top: auto;
-  padding-top:20px;
+  padding-top: 20px;
   border-top: solid 1px #d3d3d3;
 }
 
 .viewed-done-btn {
-  width:46%;
-  border-radius:0px;
-  margin:4.9px
+  width: 46%;
+  border-radius: 0px;
+  margin: 4.9px
 }
 
 .nav-items {
   display: inline
 }
+
 .uk-table td {
   padding: 0px 10px;
 }
@@ -50,80 +51,201 @@ p {
 
 .remove-padding-from-ticket {
   margin-left: 200px;
-  top:20px
+  top: 20px
 }
 
 .nav-tabs {
-  width:100%;
+  width: 100%;
   list-style: none;
 }
 
 .ul-nav-style {
-  margin:0px;
-  padding:0px;
+  margin: 0px;
+  padding: 0px;
   text-align: center;
 }
+
 .uk-card-body {
   padding: 0px 30px
 }
+
 .order-details {
   font-size: 30px;
-
 }
+
+
+/* HOME STYLE */
+
+.home-container {
+  margin-top: 15px
+}
+
+.home-pannels {
+  max-width: 20rem
+}
+
+.admin-pannels {
+
+  margin: 0 auto
+}
+
+/*USER CARDS*/
+.total-border, .user-border {
+  min-height: 250px
+}
+
+.user-cards {
+  padding: 40px 0px 20px 15px;
+  background-color: green
+}
+
+.user-border {
+  border: solid 1px green
+}
+/*END*/
+
+/*TOTAL TICKETS*/
+.total-tickets {
+  padding: 40px 0px 20px 15px;
+  background-color: #add8e6
+}
+
+.total-border {
+  border: solid 1px #add8e6
+}
+/*END*/
+
+/*BEST SELLER*/
+.best-seller-border {
+  border:solid 1px #ffa500
+}
+
+.best-seller {
+  padding: 40px 0px 20px 15px;
+  background-color: #ffa500
+}
+/*END*/
+
+.footer-info-cards {
+  padding-left: 25px;
+  font-size: 20px;
+  font-family: 'Julius Sans One', sans-serif;
+}
+
+.fa-plus-circle {
+  float: right;
+  padding-right: 10px;
+  margin-top: 5px
+}
+
+.total-num {
+  font-family: 'Julius Sans One', sans-serif;
+  font-size: 5em;
+  text-align: right;
+  padding-right: 15px;
+  color: #fff
+}
+
+.total-sub-info {
+  text-align: right;
+  font-size: 1.5em;
+  padding-right: 20px;
+  color: #fff;
+  font-family: 'Julius Sans One', sans-serif;
+}
+
+.font-icon-div {
+  width: 30%;
+  float: left
+}
+
+.icon-info-div {
+  width: 70%;
+  float: right
+}
+
+.fa-bar-chart, .fa-cutlery, .fa-users {
+  color: #fff;
+  font-size: 8em;
+}
+
+/*LATEST USERS */
+.no-padding-margin-top{
+  padding:0px;
+  margin-top:40px
+}
+.no-padding {
+  padding:0px;
+}
+#remove-padding {
+  padding:0px
+}
+.list-group-item:first-child, .list-group-item:last-child, .list-group-item{
+  border-radius: 0px
+}
+
+.user-headers {
+  font-family: 'Julius Sans One', sans-serif;
+  padding-left: 25px;
+  font-size: 20px;
+}
+/*END*/
+
 /* TICKET STYLE */
 .tickets {
   min-width: 20vw;
   justify-content: space-between;
-  height:auto;
-  margin:10px
+  height: auto;
+  margin: 10px
 }
 
 .ticket-header {
   font-weight: 700 !important;
-  color:#000 !important
+  color: #000 !important
 }
 
-.remove-left-padding{
- padding-left: 0px;
+.remove-left-padding {
+  padding-left: 0px;
 }
 
-.remove-right-padding{
- padding-left: 0px;
- text-align: right
+.remove-right-padding {
+  padding-left: 0px;
+  text-align: right
 }
 
 .extras {
-  background-color:#d3d3d3
+  background-color: #d3d3d3
 }
 
-.ticket-ul-style{
-  margin:0px;
-  padding:5px;
+.ticket-ul-style {
+  margin: 0px;
+  padding: 5px;
 }
 
 .ticket-order-header {
   font-weight: bold;
-  border-bottom:solid #d3d3d3 2px;
-  margin-bottom:5px;
+  border-bottom: solid #d3d3d3 2px;
+  margin-bottom: 5px;
   font-family: 'Muli', sans-serif;
 }
 
 .ticket-product-headers {
-  font-weight:700;
+  font-weight: 700;
   font-family: 'Muli', sans-serif;
 }
 
-.ticket-user-details-header{
-  margin-top:10px;
-  font-weight:bold;
-  border-bottom:solid #d3d3d3 2px;
-  margin-bottom:5px;
+.ticket-user-details-header {
+  margin-top: 10px;
+  font-weight: bold;
+  border-bottom: solid #d3d3d3 2px;
+  margin-bottom: 5px;
   font-family: 'Muli', sans-serif;
 }
 
 .user-details-style {
-  font-weight:900
+  font-weight: 900
 }
+
 .card-text {
   font-family: 'Julius Sans One', sans-serif;
 }

@@ -96,7 +96,6 @@ class TicketList extends Component {
   }
 
  render( ) {
-   console.log(this.state.tickets)
     return (
       <section className="container-fluid" key={"ticketList"}>
         <div className="row">
@@ -136,7 +135,7 @@ class TicketList extends Component {
                     })}
                     <h4 className="ticket-user-details-header">User Details</h4>
                     {item.user_details.map((user, index) => {
-                      console.log(user)
+                    
                       return (
                         <div key={i}>
                           <li className="card-text"><span className="user-details-style">Name:</span> {user.user_name}</li>
