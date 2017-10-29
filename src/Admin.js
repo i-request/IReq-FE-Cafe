@@ -11,8 +11,10 @@ class Admin extends Component {
     this.fetchProducts = this.fetchProducts.bind(this)
     this.handleOnSelect = this.handleOnSelect.bind(this)
     this.updateinStockData = this.updateinStockData.bind(this)
-    this.stockedProduct = this.stockedProduct.bind(this)
-    this.toggleBtn = this.toggleBtn.bind(this)
+    // this.stockedProduct = this.stockedProduct.bind(this)
+    this.toggleStock = this.toggleStock.bind(this)
+    this.toggleAdd = this.toggleAdd.bind(this)
+    this.toggleEdit = this.toggleEdit.bind(this)
     this.state = {
       products: [],
       selectedItem: null,
@@ -55,18 +57,26 @@ class Admin extends Component {
     this.setState({selectedItem})
   }
 
-  stockedProduct() {
-    console.log(this.state.selectedItem)
-    return this.state.selectedItem.inStock ? <input type="checkbox" className="form-check-input" defaultChecked="check" /> : <input type="checkbox" className="form-check-input" />
-  }
+  // stockedProduct() {
+  //   console.log(this.state.selectedItem)
+  //   return this.state.selectedItem.inStock ? <input type="checkbox" className="form-check-input" defaultChecked="check" /> : <input type="checkbox" className="form-check-input" />
+  // }
   
-    toggleBtn(e) {     
+    toggleStock(e) {     
       e.preventDefault();
-      console.log(e.target.id)
-      const showBtn = e.target.id
-      this.setState({ showEdit: !this.state.showEdit })
-    
+      // console.log(e.target.id)
+      this.setState({ showStock: !this.state.showStock, showEdit: false, showAdd: false})
   }
+  toggleEdit(e) {     
+    e.preventDefault();
+    // console.log(e.target.id)
+    this.setState({ showEdit: !this.state.showEdit, showAdd: false, showStock: false})
+}
+toggleAdd(e) {     
+  e.preventDefault();
+  // console.log(e.target.id)
+  this.setState({ showAdd: !this.state.showAdd, showEdit: false, showStock: false})
+}
 
 
   render() {
@@ -149,36 +159,38 @@ class Admin extends Component {
                 >
                   Submit
                 </button>    */}
-                
-                {this.state.selectedItem && <button 
+                    <div>&nbsp;</div>
+                    <div className="row">
+  <div className="col-4">{this.state.selectedItem && <button 
                   type="submit" id="stockBtn"
                   className="btn btn-danger" 
-                  onClick={this.toggleBtn.bind(this)}
+                  onClick={this.toggleStock.bind(this)}
                 >
                   Toggle Stock
-                </button>}
+                </button>}</div>
 
-                {this.state.selectedItem && <button 
+                <div className="col-4">{this.state.selectedItem && <button 
                   type="submit" id="editBtn"
                   className="btn btn-info" 
-                  onClick={this.toggleBtn.bind(this)}
+                  onClick={this.toggleEdit.bind(this)}
                 >
                   Edit Product
-                </button>}
+                </button>}</div>
 
-                {this.state.selectedItem && <button 
+                <div className="col-4">{this.state.selectedItem && <button 
                   type="submit" id="addBtn"
                   className="btn btn-warning" 
-                  onClick={this.toggleBtn.bind(this)}
+                  onClick={this.toggleAdd.bind(this)}
                 >
                   Add Product
-                </button>}
+                </button>}</div>
+                </div>
 
           </form>
         </section>
-            {this.state.showEdit && <Stock selectedItem={this.state.selectedItem} />}
+            <span id="">{this.state.showStock && <Stock selectedItem={this.state.selectedItem} />}</span>
             {this.state.showEdit && <EditProduct selectedItem={this.state.selectedItem} />}
-            {this.state.showEdit && <AddProduct selectedItem={this.state.selectedItem} />}
+            {this.state.showAdd && <AddProduct selectedItem={this.state.selectedItem} />}
       </div>
     )
   }

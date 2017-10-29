@@ -11,7 +11,7 @@ class AddProduct extends Component {
     const _id = id.toString()
     return axios.put(`http://localhost:9007/products/${_id}?inStock=${bool}`)
       .then(res => {
-        console.log(this.props.name)
+        // console.log(this.props.name)
       })
       .catch(console.log)
   }
@@ -37,11 +37,12 @@ class AddProduct extends Component {
   }
 
   render() {
-      console.log('PRODUCT!!!', this.props.selectedItem);
+    //   console.log('PRODUCT!!!', this.props.selectedItem);
       const {price, description, name} = this.props.selectedItem;
     return (
 
 <div>
+<div>&nbsp;</div>
 <section className='container'>
 <form method="post" name="addProduct" id="addProduct">
 <h2>Add product:</h2>
@@ -52,7 +53,7 @@ class AddProduct extends Component {
     </div>
     <div className="form-group col-6">
     <label for="addDescription">Description:</label>
-    <textarea className="form-control" id="addDescription" rows="1" placeholder="Add description"></textarea>
+    <textarea className="form-control" id="addDescription" rows="1" placeholder="Add description" defaultValue="addDescription"></textarea>
   </div>
     <div className="col-2">
     <label for="addPrice">Price (pence):</label>
@@ -69,13 +70,13 @@ class AddProduct extends Component {
 
 <div className="row">
   <div className="col-2">
-      <div class="form-check">
+      <div className="form-check">
   <label className="form-check-label">
   <input id="radio1" name="type" type="radio" className="form-check-input" value="food"/>
 Food
 </label>
 </div>
-<div class="form-check">
+<div className="form-check">
 <label className="form-check-label">
   <input id="radio2" name="type" type="radio" className="form-check-input" value="drink"/>
 Drink
@@ -84,13 +85,13 @@ Drink
        </div>
 
         <div className="col-2">
-      <div class="form-check">
+      <div className="form-check">
   <label className="form-check-label">
   <input id="radio3" name="temp" type="radio" className="form-check-input" value="hot"/>
 Hot
 </label>
 </div>
-<div class="form-check">
+<div className="form-check">
 <label className="form-check-label">
   <input id="radio4" name="temp" type="radio" className="form-check-input" value="cold"/>
 Cold
