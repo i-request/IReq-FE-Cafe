@@ -101,8 +101,9 @@ class TicketList extends Component {
         <div className="row">
           {this.state.tickets.map((item, i, arr) => {
             return (
+              <div className="col-md-4 col-no-padding-left">
               <div className="card bg-light mb-3 tickets" key={i}>
-                <div className="card-header" key={i}><img className="rounded" src="../images/co-op.png" width="40" height="40" alt='Company Logo'/>
+                <div className="card-header ticket-header" key={i}><img className="rounded" src="../images/co-op.png" width="40" height="40" alt='Company Logo'/>
                   <span className="left align-top padded">{item.user_details.user_name}</span>
                   <span className="right">Order ID:
                     <strong>{item.order_num}</strong>
@@ -135,7 +136,7 @@ class TicketList extends Component {
                     })}
                     <h4 className="ticket-user-details-header">User Details</h4>
                     {item.user_details.map((user, index) => {
-                    
+
                       return (
                         <div key={i}>
                           <li className="card-text"><span className="user-details-style">Name:</span> {user.user_name}</li>
@@ -152,6 +153,7 @@ class TicketList extends Component {
                     <span id="doneBtn" onClick={this.handleDone(item.order_num)}>{this.renderDone(item.isComplete)}</span>
                   </div>
                 </div>
+              </div>
               </div>
             )
           })}

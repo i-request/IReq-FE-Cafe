@@ -1,6 +1,6 @@
 body {
   height: 100vh;
-  background-color: #f4f4f4
+  background-color: #f4f4f4;
 }
 
 li {
@@ -11,10 +11,24 @@ p {
   margin: 0px;
 }
 
+.main-logo-container {
+  height:200px;
+  margin-top:-40px
+}
+
+.main-logo {
+  display: block;
+  margin:0 auto;
+}
+
+.nav-logo {
+  display: block;
+  margin:0 auto;
+}
+
 .nav-bar-style {
   height: 125px;
   width: 100vw;
-  background-color: #d3d3d3;
   display: fixed
 }
 
@@ -36,8 +50,47 @@ p {
   margin: 4.9px
 }
 
-.nav-items {
-  display: inline
+.bg-dark {
+  background: -webkit-linear-gradient(#000, #444);
+  background: -moz-linear-gradient(#000, #444);
+  background: -o-linear-gradient(#000, #444);
+  background: linear-gradient(#000, #555);
+}
+
+.nav-link {
+  border-left: solid 1px #111;
+  border-right: solid 1px #111;
+  text-shadow: 0 1px 0 #000;
+  text-align: right;
+}
+
+.nav-link, .nav-item {
+  font-size: 14px;
+  height: 60px;
+  line-height: 45px;
+  background: -webkit-linear-gradient(#000, #C7D3DC);
+  background: -moz-linear-gradient(#000, #C7D3DC);
+  background: -o-linear-gradient(#000, #C7D3DC);
+  background: linear-gradient(#000, #C7D3DC);
+  -webkit-transition: background 1s ease-out;
+  -moz-transition: background 1s ease-out;
+  -o-transition: background 1s ease-out;
+  transition: background 1s ease-out;
+  background-size: 1px 200px;
+}
+
+.nav-icons {
+  font-size: 1.3em;
+  margin: 0px 8px
+}
+
+.badge, .badge-danger {
+  margin-left:5px
+}
+
+.nav-link:Hover {
+  background-position: 100px;
+  border: solid 1px #343a40;
 }
 
 .uk-table td {
@@ -52,6 +105,10 @@ p {
 .remove-padding-from-ticket {
   margin-left: 200px;
   top: 20px
+}
+
+.navbar {
+  padding: 0rem 1rem
 }
 
 .nav-tabs {
@@ -85,11 +142,16 @@ p {
 }
 
 .admin-pannels {
-
   margin: 0 auto
 }
 
+.user-details-icons {
+  margin-right: 10px;
+  font-size: 1.3em
+}
+
 /*USER CARDS*/
+
 .total-border, .user-border {
   min-height: 250px
 }
@@ -102,9 +164,13 @@ p {
 .user-border {
   border: solid 1px green
 }
+
+
 /*END*/
 
+
 /*TOTAL TICKETS*/
+
 .total-tickets {
   padding: 40px 0px 20px 15px;
   background-color: #add8e6
@@ -113,17 +179,23 @@ p {
 .total-border {
   border: solid 1px #add8e6
 }
+
+
 /*END*/
 
+
 /*BEST SELLER*/
+
 .best-seller-border {
-  border:solid 1px #ffa500
+  border: solid 1px #ffa500
 }
 
 .best-seller {
   padding: 40px 0px 20px 15px;
   background-color: #ffa500
 }
+
+
 /*END*/
 
 .footer-info-cards {
@@ -169,39 +241,51 @@ p {
   font-size: 8em;
 }
 
+
 /*LATEST USERS */
-.no-padding-margin-top{
-  padding:0px;
-  margin-top:40px
-}
-.no-padding {
-  padding:0px;
-}
-#remove-padding {
-  padding:0px
-}
-.list-group-item:first-child, .list-group-item:last-child, .list-group-item{
-  border-radius: 0px
+
+.no-padding-margin-top {
+  padding: 0px;
 }
 
+.no-padding {
+  padding: 0px;
+}
+
+#remove-padding {
+  padding: 0px
+}
+
+.list-group-item:first-child, .list-group-item:last-child, .list-group-item {
+  border-radius: 0px
+}
 .user-headers {
   font-family: 'Julius Sans One', sans-serif;
   padding-left: 25px;
   font-size: 20px;
+  background: linear-gradient(#000, #555);
+  color:#fff
 }
+
+
 /*END*/
 
+
 /* TICKET STYLE */
+
 .tickets {
-  min-width: 20vw;
-  justify-content: space-between;
+  border-radius: .25rem;
   height: auto;
-  margin: 10px
+  margin-top: 15px;
+  margin-left:0px;
+  margin-right: 0px;
+  margin-bottom:0px
 }
 
 .ticket-header {
-  font-weight: 700 !important;
-  color: #000 !important
+  background: linear-gradient(#000, #555);
+  font-weight: 700;
+  color: #fff
 }
 
 .remove-left-padding {
@@ -253,4 +337,45 @@ p {
 .nothing-to-display {
   text-align: center;
   height: 100%;
+}
+
+.right {
+  margin-left: 15px
+}
+
+.col-no-padding-left{
+
+}
+
+/*MEDIA QUERIES */
+
+@media(max-width: 991px) {
+  .nav-link, .nav-item {
+    width: 100%;
+    font-size: 18px;
+    background-color: #000;
+  }
+  .navbar-dark .navbar-nav .active>.nav-link, .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .show>.nav-link .nav-icons {
+    float: none;
+    text-align: left;
+    font-size: 18px;
+    border:none
+  }
+  .nav-icons {
+    margin:0px 15px;
+  }
+  .navbar{
+    margin:0px!important
+  }
+  .total-sub-info{
+    font-size:1.15em;
+    margin-left:5px
+  }
+  .nav-logo {
+    display: none
+  }
+  .user-name{
+    background-color: #e9ecef;
+    border-top:solid #000 5px
+  }
 }

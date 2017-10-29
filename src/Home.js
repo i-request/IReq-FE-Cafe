@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import axios from 'axios'
-import TicketList from './TicketList';
 
 class Home extends Component {
   constructor(props) {
@@ -54,7 +53,7 @@ class Home extends Component {
                     <i className="fa fa-cutlery" aria-hidden="true"></i>
                   </div>
                   <div className="icon-info-div">
-                    <h1 className="total-num">23</h1>
+                    <h1 className="total-num">{this.state.users.length}</h1>
                     <h4 className="total-sub-info">Total tickets</h4>
                   </div>
                 </div>
@@ -73,7 +72,7 @@ class Home extends Component {
                   </div>
                   <div className="icon-info-div">
                     <h1 className="total-num">43</h1>
-                    <h4 className="total-sub-info">Best Seller, Burger</h4>
+                    <h4 className="total-sub-info">Best Seller</h4>
                   </div>
                 </div>
                 <div className="card-header footer-info-cards">View Details
@@ -94,29 +93,43 @@ class Home extends Component {
                   <div id="remove-padding" className="card-body text-dark">
 
                     {this.state.users.map((user) => {
-                      console.log(user.user_details)
+                      console.log(user)
                       return (
                         <div className="container-fluid">
                           <div className="row">
                             <div className="col-md-4 no-padding">
                               <ul className="list-group">
-                                <li className="list-group-item">
-                                  <i class="fa fa-user-o" aria-hidden="true"></i>{user.user_details.user_name}</li>
+                                <li className="list-group-item user-name" key={"user-details"}>
+                                  <i className="user-details-icons fa fa-user-o" aria-hidden="true"> </i>
+                                   {user.user_details[0].user_name}
+                                  </li>
                               </ul>
                             </div>
                             <div className="col-md-4 no-padding">
                               <ul className="list-group">
                                 <li className="list-group-item">
-                                  <i class="fa fa-envelope-o" aria-hidden="true"></i>{user.user_details.email}</li>
+                                  <i className="user-details-icons fa fa-envelope-o" aria-hidden="true"> </i>
+                                   {user.user_details[0].email}
+                                  </li>
                               </ul>
                             </div>
-                            <div className="col-md-4 no-padding">
+                            <div className="col-md-2 no-padding">
                               <ul className="list-group">
                                 <li className="list-group-item">
-                                  <i class="fa fa-mobile" aria-hidden="true"></i>
-                                  {user.user_details.phone_num}</li>
+                                  <i className="user-details-icons fa fa-phone" aria-hidden="true"> </i>
+                                   {user.user_details[0].phone_num}
+                                </li>
                               </ul>
                             </div>
+                            <div className="col-md-2 no-padding">
+                              <ul className="list-group">
+                                <li className="list-group-item" key={"user-details"}>
+                                  <i className="user-details-icons fa fa-building" aria-hidden="true"> </i>
+                                   {user.user_details[0].user_company}
+                                  </li>
+                              </ul>
+                            </div>
+
                           </div>
                         </div>
                       )
