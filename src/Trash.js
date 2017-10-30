@@ -22,7 +22,6 @@ class Trash extends Component {
   }
 
   render() {
-    console.log(this.state.tickets)
     return <TicketList />
   }
 }

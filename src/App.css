@@ -1,6 +1,6 @@
 body {
   height: 100vh;
-  background-color:#f4f4f4
+  background-color: #f4f4f4;
 }
 
 li {
@@ -11,10 +11,24 @@ p {
   margin: 0px;
 }
 
+.main-logo-container {
+  height:200px;
+  margin-top:-40px
+}
+
+.main-logo {
+  display: block;
+  margin:0 auto;
+}
+
+.nav-logo {
+  display: block;
+  margin:0 auto;
+}
+
 .nav-bar-style {
-  height:125px;
+  height: 125px;
   width: 100vw;
-  background-color:#d3d3d3;
   display: fixed
 }
 
@@ -26,19 +40,49 @@ p {
 
 .viewed-done-button-container {
   margin-top: auto;
-  padding-top:20px;
+  padding-top: 20px;
   border-top: solid 1px #d3d3d3;
 }
 
 .viewed-done-btn {
-  width:46%;
-  border-radius:0px;
-  margin:4.9px
+  width: 46%;
+  border-radius: 0px;
+  margin: 4.9px
 }
 
-.nav-items {
-  display: inline
+.bg-dark {
+  background-color: #343a40!important
 }
+
+.nav-link {
+  text-align: right;
+}
+
+.nav-link, .nav-item {
+  font-size: 14px;
+  height: 60px;
+  line-height: 45px;
+  background-color: #343a40!important;
+}
+
+.nav-item, .nav-link:hover {
+  background-color: #000
+}
+
+.nav-icons {
+  font-size: 1.3em;
+  margin: 0px 8px
+}
+
+.badge, .badge-danger {
+  margin-left:5px
+}
+
+.nav-link:Hover {
+
+  border: solid 1px #343a40;
+}
+
 .uk-table td {
   padding: 0px 10px;
 }
@@ -50,80 +94,232 @@ p {
 
 .remove-padding-from-ticket {
   margin-left: 200px;
-  top:20px
+  top: 20px
+}
+
+.navbar {
+  padding: 0rem 1rem
 }
 
 .nav-tabs {
-  width:100%;
+  width: 100%;
   list-style: none;
 }
 
 .ul-nav-style {
-  margin:0px;
-  padding:0px;
+  margin: 0px;
+  padding: 0px;
   text-align: center;
 }
+
 .uk-card-body {
   padding: 0px 30px
 }
+
 .order-details {
   font-size: 30px;
-
 }
+
+
+/* HOME STYLE */
+
+.home-container {
+  margin-top: 15px
+}
+
+.home-pannels {
+  max-width: 20rem
+}
+
+.admin-pannels {
+  margin: 0 auto
+}
+
+.user-details-icons {
+  margin-right: 10px;
+  font-size: 1.3em
+}
+
+/*USER CARDS*/
+
+.total-border, .user-border {
+  min-height: 250px
+}
+
+.user-cards {
+  padding: 40px 0px 20px 15px;
+  background-color: green
+}
+
+.user-border {
+  border: solid 1px green
+}
+
+
+/*END*/
+
+
+/*TOTAL TICKETS*/
+
+.total-tickets {
+  padding: 40px 0px 20px 15px;
+  background-color: #add8e6
+}
+
+.total-border {
+  border: solid 1px #add8e6
+}
+
+
+/*END*/
+
+
+/*BEST SELLER*/
+
+.best-seller-border {
+  border: solid 1px #ffa500
+}
+
+.best-seller {
+  padding: 40px 0px 20px 15px;
+  background-color: #ffa500
+}
+
+
+/*END*/
+
+.footer-info-cards {
+  padding-left: 25px;
+  font-size: 20px;
+  font-family: 'Julius Sans One', sans-serif;
+}
+
+.fa-plus-circle {
+  float: right;
+  padding-right: 10px;
+  margin-top: 5px
+}
+
+.total-num {
+  font-family: 'Julius Sans One', sans-serif;
+  font-size: 5em;
+  text-align: right;
+  padding-right: 15px;
+  color: #fff
+}
+
+.total-sub-info {
+  text-align: right;
+  font-size: 1.5em;
+  padding-right: 20px;
+  color: #fff;
+  font-family: 'Julius Sans One', sans-serif;
+}
+
+.font-icon-div {
+  width: 30%;
+  float: left
+}
+
+.icon-info-div {
+  width: 70%;
+  float: right
+}
+
+.fa-bar-chart, .fa-cutlery, .fa-users {
+  color: #fff;
+  font-size: 8em;
+}
+
+
+/*LATEST USERS */
+
+.no-padding-margin-top {
+  padding: 0px;
+}
+
+.no-padding {
+  padding: 0px;
+}
+
+#remove-padding {
+  padding: 0px
+}
+
+.list-group-item:first-child, .list-group-item:last-child, .list-group-item {
+  border-radius: 0px
+}
+.user-headers {
+  font-family: 'Julius Sans One', sans-serif;
+  padding-left: 25px;
+  font-size: 20px;
+  background: linear-gradient(#000, #555);
+  color:#fff
+}
+
+
+/*END*/
+
+
 /* TICKET STYLE */
+
 .tickets {
-  min-width: 20vw;
-  justify-content: space-between;
-  height:auto;
-  margin:10px
+  border-radius: .25rem;
+  height: auto;
+  margin-top: 15px;
+  margin-left:0px;
+  margin-right: 0px;
+  margin-bottom:0px
 }
 
 .ticket-header {
-  font-weight: 700 !important;
-  color:#000 !important
+  background: linear-gradient(#000, #555);
+  font-weight: 700;
+  color: #fff
 }
 
-.remove-left-padding{
- padding-left: 0px;
+.remove-left-padding {
+  padding-left: 0px;
 }
 
-.remove-right-padding{
- padding-left: 0px;
- text-align: right
+.remove-right-padding {
+  padding-left: 0px;
+  text-align: right
 }
 
 .extras {
-  background-color:#d3d3d3
+  background-color: #d3d3d3
 }
 
-.ticket-ul-style{
-  margin:0px;
-  padding:5px;
+.ticket-ul-style {
+  margin: 0px;
+  padding: 5px;
 }
 
 .ticket-order-header {
   font-weight: bold;
-  border-bottom:solid #d3d3d3 2px;
-  margin-bottom:5px;
+  border-bottom: solid #d3d3d3 2px;
+  margin-bottom: 5px;
   font-family: 'Muli', sans-serif;
 }
 
 .ticket-product-headers {
-  font-weight:700;
+  font-weight: 700;
   font-family: 'Muli', sans-serif;
 }
 
-.ticket-user-details-header{
-  margin-top:10px;
-  font-weight:bold;
-  border-bottom:solid #d3d3d3 2px;
-  margin-bottom:5px;
+.ticket-user-details-header {
+  margin-top: 10px;
+  font-weight: bold;
+  border-bottom: solid #d3d3d3 2px;
+  margin-bottom: 5px;
   font-family: 'Muli', sans-serif;
 }
 
 .user-details-style {
-  font-weight:900
+  font-weight: 900
 }
+
 .card-text {
   font-family: 'Julius Sans One', sans-serif;
 }
@@ -131,4 +327,45 @@ p {
 .nothing-to-display {
   text-align: center;
   height: 100%;
+}
+
+.right {
+  margin-left: 15px
+}
+
+.col-no-padding-left{
+
+}
+
+/*MEDIA QUERIES */
+
+@media(max-width: 991px) {
+  .nav-link, .nav-item {
+    width: 100%;
+    font-size: 18px;
+    background-color: #000;
+  }
+  .navbar-dark .navbar-nav .active>.nav-link, .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .show>.nav-link .nav-icons {
+    float: none;
+    text-align: left;
+    font-size: 18px;
+    border:none
+  }
+  .nav-icons {
+    margin:0px 15px;
+  }
+  .navbar{
+    margin:0px!important
+  }
+  .total-sub-info{
+    font-size:1.15em;
+    margin-left:5px
+  }
+  .nav-logo {
+    display: none
+  }
+  .user-name{
+    background-color: #e9ecef;
+    border-top:solid #000 5px
+  }
 }

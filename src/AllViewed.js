@@ -33,8 +33,8 @@ class AllViewed extends Component {
             <div className="container">
               <h1 className="display-3">No Viewed Tickets</h1>
               <p className="lead">Please see
-                <Link to="/all-tickets">all tickets</Link>
-                for a list of unviewed tickets</p>
+                 <Link to="/all-tickets"> all tickets </Link>
+                 for a list of unviewed tickets</p>
             </div>
           </div>
         </section>

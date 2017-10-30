@@ -16,19 +16,19 @@ class App extends Component {
   render() {
 
     return (
-        <Router>
+      <Router>
         <div>
           <NavBar/>
-            <Route exact path="/" component={Home}/>
-            <Route path="/pending-tickets" component={PendingTickets}/>
-            <Route path="/all-tickets" component={AllTickets}/>
-            <Route path="/all-viewed" component={AllViewed}/>
-            <Route path="/archived" component={Archived}/>
-            <Route path="/cancelled" component={Cancelled}/>
-            <Route path="/admin" component={Admin}/>
-            <Route path="/trash" component={Trash}/>
-          </div>
-        </Router>
+          <Route exact path="/" component={Home}/>
+          <Route path="/pending-tickets" component={PendingTickets}/>
+          <Route path="/all-tickets" component={AllTickets}/>
+          <Route path="/all-viewed" component={AllViewed}/>
+          <Route path="/archived" component={Archived}/>
+          <Route path="/cancelled" component={Cancelled}/>
+          <Route path="/admin" component={Admin}/>
+          <Route path="/trash" component={Trash}/>
+        </div>
+      </Router>
     );
   }
 }
