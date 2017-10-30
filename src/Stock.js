@@ -9,14 +9,14 @@ class Stock extends Component {
     // this.handleStock = this.handleStock.bind(this)
   }
 
-  updateStockData(id, bool) {
-    const _id = id.toString()
-    return axios.put(`http://localhost:9007/products/${_id}?inStock=${bool}`)
-      .then(res => {
-        // console.log(this.props.selectedItem.name)
-      })
-      .catch(console.log)
-  }
+//   updateStockData(id, bool) {
+//     const _id = id.toString()
+//     return axios.put(`http://localhost:9007/products/${_id}?inStock=${bool}`)
+//       .then(res => {
+//         // console.log(this.props.selectedItem.name)
+//       })
+//       .catch(console.log)
+//   }
 
 
 
@@ -28,8 +28,7 @@ class Stock extends Component {
       ? 'check'
       : 'times';
     return (
-      <button id='stockBtn' className={`btn viewed-done-btn btn-${inStockColorClass}`}>In Stock
-        <i className={`fa fa-${inStockIcon}`} aria-hidden="true"></i>
+      <button id='stockBtn' className={`btn viewed-done-btn btn-${inStockColorClass}`}>In Stock &nbsp;<i className={`fa fa-${inStockIcon}`} aria-hidden="true"></i>
       </button>
     );
 
@@ -37,19 +36,19 @@ class Stock extends Component {
 
   render() {
       console.log('STOCK!!!', this.props.selectedItem.inStock);
-      const {inStock, _id} = this.props.selectedItem;
+      const {inStock, _id, name} = this.props.selectedItem;
     //   console.log(inStock)
     return (
 
 <div>
 <div>&nbsp;</div>
 <section className='container'>
-  <form method="post" name="productUpdate" id="productUpdate">
-            <h2>Stock:</h2>
+  <form >
+            <h2>Stock check: </h2>
             <div className="row">
             </div>
 
-            <span id="stock" onClick={this.handleStock}>{this.stockedProduct(inStock)}</span>
+            <span id="stock" onClick={this.props.handleStock}>{this.stockedProduct(inStock)}</span>
           </form>
         </section>
       </div>

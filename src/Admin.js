@@ -10,17 +10,23 @@ class Admin extends Component {
     super(props)
     this.fetchProducts = this.fetchProducts.bind(this)
     this.handleOnSelect = this.handleOnSelect.bind(this)
-    this.updateinStockData = this.updateinStockData.bind(this)
+    // this.updateStockData = this.updateStockData.bind(this)
     // this.stockedProduct = this.stockedProduct.bind(this)
     this.toggleStock = this.toggleStock.bind(this)
     this.toggleAdd = this.toggleAdd.bind(this)
     this.toggleEdit = this.toggleEdit.bind(this)
+    this.handleStock = this.handleStock.bind(this)
+    this.handleProdEdit = this.handleProdEdit.bind(this)
     this.state = {
       products: [],
       selectedItem: null,
       showStock: false,
       showEdit: false,
-      showAdd: false
+      showAdd: false,
+      name: '',
+      price: 0,
+      description: '',
+      type: []
     }
     
 
@@ -38,23 +44,52 @@ class Admin extends Component {
       .catch(console.log)
   }
 
-  updateinStockData(id, bool) {
-    const _id = id.toString()
-    return axios.put(`http://localhost:9007/products/${_id}?inStock=${bool}`)
-      .then(res => {
-        // console.log(res)
-      })
-      .catch(console.log)
+  // updateStockData(e) {
+  //   e.preventDefault();
+  //   console.log(e)
+  //   const _id = e.toString()
+  //   const bool = e.inStock
+  //   return axios.put(`http://localhost:9007/products/${_id}?inStock=${bool}`)
+  //     .then(res => {
+  //       // console.log(res)
+
+  //     })
+  //     .catch(console.log)
+  // }
+
+  handleStock(e) {
+    e.preventDefault();
+    const bool = this.state.selectedItem.inStock
+    let newSelected = Object.assign({}, this.state.selectedItem, {inStock: !this.state.selectedItem.inStock})
+    this.setState({selectedItem: newSelected})
+    console.log(bool)
+    return axios.put(`http://localhost:9007/products/${this.state.selectedItem._id}?inStock=${!bool}`)
+    .then(console.log("DONE!!!"))
+    .catch(console.log)
   }
+
+
 
   handleOnSelect(e) {
     console.log(this.state.products)
-    // console.log(e.target.value)
     // console.log(e.target)
     // find the specific product thats id matches product id from e
     const selectedItem = this.state.products.find((product) => product._id === e.target.value);
     // Once found, populate selectedItem on state
     this.setState({selectedItem})
+  }
+
+  handleProdEdit(e) {
+  e.preventDefault();
+  const nameStr = this.state.selectedItem.name
+  // const priceNum = this.state.selectedItem.price
+  // const descriptionStr = this.state.selectedItem.description
+  let newName = Object.assign({}, this.state.selectedItem, {name: this.state.selectedItem.name})
+  this.setState({selectedItem: newName})
+  console.log(nameStr)
+  return axios.put(`http://localhost:9007/products/${this.state.selectedItem._id}?name=${nameStr}`)
+  .then(console.log("DONE!!!"))
+  .catch(console.log)
   }
 
   // stockedProduct() {
@@ -110,15 +145,8 @@ toggleAdd(e) {
                 <label htmlFor="productSearch">Drink or Food</label>
                 <select className="form-control" id="productType" onChange={this.handleOnSelect}>
                 <option className="card-text" value={null}>Please select...</option>
-
-                {this.state.products.map((product, index) => {
-                    return (
-                      <option className="card-text" value={product._id} key={index}>{product.type}</option>
-                    )
-                  })}
-
-                  <option value="hot drink">Drink</option>
-                  <option value="food">Food</option>
+                <option className="card-text" value="food">Food</option>
+                <option className="card-text" value="drink">Drink</option>
                 </select>
               </div>
               <div className="col-3">
@@ -132,7 +160,7 @@ toggleAdd(e) {
               <div className="col-6">
                 <label htmlFor="productSearch">Select product from list</label>
                 <select className="form-control" id="hotDrink" onChange={this.handleOnSelect}>
-                  <option className="card-text" value={null}>Please select...</option>
+                  <option className="card-text" value={null} >Please select...</option>
                   {this.state.products.map((product, index) => {
                     product.type === "hot drink"
                     return (
@@ -188,7 +216,7 @@ toggleAdd(e) {
 
           </form>
         </section>
-            <span id="">{this.state.showStock && <Stock selectedItem={this.state.selectedItem} />}</span>
+            <span id="">{this.state.showStock && <Stock selectedItem={this.state.selectedItem} handleStock={this.handleStock}/>}</span>
             {this.state.showEdit && <EditProduct selectedItem={this.state.selectedItem} />}
             {this.state.showAdd && <AddProduct selectedItem={this.state.selectedItem} />}
       </div>
