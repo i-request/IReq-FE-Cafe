@@ -22,20 +22,21 @@ class PendingTickets extends Component {
   };
 
   isComplete() {
-
+    let pending = []
+    this.state.tickets.map((pendingTicket) => {
+      pendingTicket.isComplete === false ? pending.push(pendingTicket) : ''
+    })
+    console.log(pending)
   }
+
 
   render() {
     return (
       <div>
       {this.state.tickets.map((ticket) => {
-        let isComplete = ticket.isComplete
-        if(!isComplete) {
-          return <TicketList />
-        }else {
-          return ''
-        }
-
+        let isComplete = ticket.isComplete;
+        console.log(isComplete)
+        if(!isComplete) return <TicketList />
       })}
       </div>
     )
