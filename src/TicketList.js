@@ -1,5 +1,9 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import {
+  SocketProvider,
+  socketConnect,
+} from 'socket.io-react';
 
 class TicketList extends Component {
   constructor(props) {
@@ -74,7 +78,15 @@ return this.genFilter(firstRun,prop2,boole)()}
     //   this.fetchCancelledTics();
     // if (this.props.archived === true)
     //   this.fetchArchivedTics();
+
     this.fetchTickets()
+    this.props.socket.on('ticket', (data)=>{
+      let newstate = this.state.tickets.concat(data)
+      this.setState({
+          tickets:newstate
+      })
+  })
+
     }
 
   renderView(bool) {
@@ -227,4 +239,4 @@ return this.genFilter(firstRun,prop2,boole)()}
   }
 
 }
-export default TicketList
+export default socketConnect(TicketList)

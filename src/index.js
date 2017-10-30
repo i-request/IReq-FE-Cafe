@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import NewSocketApp from './NewSocketApp';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<NewSocketApp />, document.getElementById('root'));
