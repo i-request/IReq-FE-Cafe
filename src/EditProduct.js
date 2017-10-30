@@ -1,88 +1,88 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import axios from 'axios';
-import Admin from './Admin';
 
 class EditProduct extends Component {
-  constructor(props) {
-    super(props)
-  }
+    constructor(props) {
+        super(props)
+        this.state = {
+            name: '',
+            price: 0,
+            description: ''
+        }
+        this.handleProdName = this.handleProdName.bind(this)
+        this.handleProdPrice = this.handleProdPrice.bind(this)
+        this.handleProdDescription = this.handleProdDescription.bind(this)
+        this.submitProdEdit = this.submitProdEdit.bind(this)
+    }
 
-//   updateinStockData(id, bool) {
-//     const _id = id.toString()
-//     return axios.put(`http://localhost:9007/products/${_id}?inStock=${bool}`)
-//       .then(res => {
-//         // console.log(this.props.name)
-//       })
-//       .catch(console.log)
-//   }
+    handleProdName(e) {
+        e.preventDefault();
+        let val = e.target.value
+        this.setState({ name: val })
+    }
+    handleProdPrice(e) {
+        e.preventDefault();
+        let val = e.target.value
+        this.setState({ price: val })
+    }
+    handleProdDescription(e) {
+        e.preventDefault();
+        let val = e.target.value
+        this.setState({ description: val })
+    }
+    submitProdEdit(e) {
+        e.preventDefault();
+        let name = this.state.name || this.props.selectedItem.name
+        let price = this.state.price || this.props.selectedItem.price
+        let description = this.state.description || this.props.selectedItem.description
+        this.props.handleEditSubmit(name, price, description)
+    }
 
-//   stockedProduct(bool) {
-//     const stocked = bool
-//     return bool ? <input type="checkbox" className="form-check-input" checked="check" /> : <input type="checkbox" className="form-check-input" />
-//   }
+    render() {
+        console.log('EDIT PRODUCT!!!', this.props.selectedItem);
+        const { price, description, name } = this.props.selectedItem;
+        return (
 
-//   renderDone(bool) {
-//     const doneColorClass = bool
-//       ? 'success'
-//       : 'danger';
-//     const doneIcon = bool
-//       ? 'check'
-//       : 'times';
-//     return (
-//       <button id='doneBtn' className={`btn viewed-done-btn btn-${doneColorClass}`}>Done
-//         <i className={`fa fa-${doneIcon}`} aria-hidden="true"></i>
-//       </button>
-//     );
+            <div>
+                <div>&nbsp;</div>
+                <section className='container'>
+                    <form>
+                        <h2>Edit product:</h2>
+                        <div className="row">
+                            <div className="col-3">
+                                <label htmlFor="currentDescription">Current name</label>
+                                <input type="text" className="form-control" id="oldName" aria-describedby="oldName" disabled placeholder={name} />
+                            </div>
+                            <div className="col-3">
+                                <label htmlFor="currentPrice">Current price (pence)</label>
+                                <input type="number" className="form-control" id="oldPrice" aria-describedby="emailHelp" disabled placeholder={price} />
+                            </div>
+                            <div className="col-3">
+                                <label htmlFor="newDescription">New name</label>
+                                <input type="text" className="form-control" id="newName" aria-describedby="newName" placeholder="Type new name" onChange={this.handleProdName}/>
+                            </div>
+                            <div className="col-3">
+                                <label htmlFor="newPrice">New price (pence)</label>
+                                <input type="number" className="form-control" id="newPrice" aria-describedby="emailHelp" placeholder="Type new price (pence)"  onChange={this.handleProdPrice}/>
+                            </div>
+                        </div>
+                        <div>&nbsp;</div>
+                        <div className="row">
+                            <div className="form-group col-6">
+                                <label htmlFor="currentProductDescription">Current description</label>
+                                <textarea className="form-control" id="currentProductDescription" rows="3" placeholder='' value={description} disabled >{description}</textarea>
+                            </div>
 
-//   }
+                            <div className="form-group col-6">
+                                <label htmlFor="newProductDescription">New description</label>
+                                <textarea className="form-control" id="currentProductDescription" rows="3" placeholder='Add new description' onChange={this.handleProdDescription} ></textarea>
+                            </div>
+                        </div>
 
-  render() {
-      console.log('EDIT PRODUCT!!!', this.props.selectedItem.name);
-      const {price, description, name} = this.props.selectedItem;
-    return (
-
-<div>
-    <div>&nbsp;</div>
-<section className='container'>
-  <form onSubmit={this.props.handleProdEdit}>
-            <h2>Edit product:</h2>
-            <div className="row">
-              <div className="col-3">
-                <label htmlFor="currentDescription">Current name</label>
-                <input type="text" className="form-control" id="oldName" aria-describedby="oldName" disabled placeholder={name} />
-              </div>
-              <div className="col-3">
-                <label htmlFor="currentPrice">Current price (pence)</label>
-                <input type="number" className="form-control" id="oldPrice" aria-describedby="emailHelp" disabled placeholder={price} />
-              </div>
-              <div className="col-3">
-                <label htmlFor="newDescription">New name</label>
-                <input type="text" className="form-control" id="newName" aria-describedby="newName" placeholder="Type new name" />
-              </div>
-              <div className="col-3">
-                <label htmlFor="newPrice">New price (pence)</label>
-                <input type="number" className="form-control" id="newPrice" aria-describedby="emailHelp" placeholder="Type new price (pence)" />
-              </div>
+                        <button type="submit" className="btn btn-primary" onClick={this.submitProdEdit}>Submit</button>
+                    </form>
+                </section>
             </div>
-            <div>&nbsp;</div>
-            <div className="row">
-              <div className="form-group col-6">
-                <label htmlFor="currentProductDescription">Current description</label>
-                <textarea className="form-control" id="currentProductDescription" rows="3" placeholder='' value={description} disabled>{description}</textarea>
-              </div>
-
-              <div className="form-group col-6">
-                <label htmlFor="newProductDescription">New description</label>
-                <textarea className="form-control" id="newProductDescription" rows="3" placeholder="New product description from server" value={description}></textarea>
-              </div>
-            </div>
-
-            <button type="submit" className="btn btn-primary">Submit</button>
-          </form>
-        </section>
-      </div>
-    )
-  }
+        )
+    }
 }
 export default EditProduct

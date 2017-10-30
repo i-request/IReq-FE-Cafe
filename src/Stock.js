@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import axios from 'axios';
-import Admin from './Admin';
+// import ReactDOM from 'react-dom';
+// import axios from 'axios';
+// import Admin from './Admin';
 
 class Stock extends Component {
   constructor(props) {
@@ -36,7 +36,7 @@ class Stock extends Component {
 
   render() {
       console.log('STOCK!!!', this.props.selectedItem.inStock);
-      const {inStock, _id, name} = this.props.selectedItem;
+      const {inStock} = this.props.selectedItem;
     //   console.log(inStock)
     return (
 
