@@ -92,7 +92,7 @@ class Home extends Component {
                   </div>
                   <div id="remove-padding" className="card-body text-dark">
 
-                    {this.state.users.map((user) => {
+                    {/* {this.state.users.map((user) => {
                       console.log(user)
                       return (
                         <div className="container-fluid">
@@ -133,7 +133,7 @@ class Home extends Component {
                           </div>
                         </div>
                       )
-                    })}
+                    })} */}
                   </div>
                 </div>
               </div>

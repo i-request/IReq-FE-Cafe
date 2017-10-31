@@ -169,8 +169,8 @@ return this.genFilter(firstRun,prop2,boole)()}
               <div className="col-md-4 col-no-padding-left">
                 <div className="card bg-light mb-3 tickets" key={i}>
                   <div className="card-header ticket-header" key={i}><img className="rounded" src="../images/co-op.png" width="40" height="40" alt='Company Logo'/>
-                    <span className="left align-top padded">{item.user_details.user_name}</span>
-                    <span className="right">Order ID:
+                    {/* <span className="left align-top padded">{item.user_details.user_name}</span> */}
+                    <span className="right">Order Number:
                       <strong>{item.order_num}</strong>
                     </span>
                   </div>
@@ -200,7 +200,7 @@ return this.genFilter(firstRun,prop2,boole)()}
                         )
                       })}
                       <h4 className="ticket-user-details-header">User Details</h4>
-                      {item.user_details.map((user, index) => {
+                      {[item.user_details].map((user, index) => {
 
                         return (
                           <div key={i}>

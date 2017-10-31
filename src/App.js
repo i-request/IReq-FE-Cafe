@@ -9,7 +9,7 @@ import Cancelled from './Cancelled';
 import PendingTickets from './PendingTickets';
 import Trash from './Trash';
 import Home from './Home'
-import {BrowserRouter as Router, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom'
 
 class App extends Component {
 
@@ -19,7 +19,7 @@ class App extends Component {
       <Router>
         <div>
           <NavBar/>
-          <Route exact path="/" component={Home}/>
+          <Redirect from="/" to="/pending-tickets"/>
           <Route path="/pending-tickets" component={PendingTickets}/>
           <Route path="/all-tickets" component={AllTickets}/>
           <Route path="/all-viewed" component={AllViewed}/>
