@@ -5,18 +5,19 @@ import Admin from './Admin';
 class AddProduct extends Component {
   constructor(props) {
     super(props)
-    this.handleProdName = this.handleProdName.bind(this)
-    this.handleProdPrice = this.handleProdPrice.bind(this)
-    this.handleProdDescription = this.handleProdDescription.bind(this)
-    this.genProdType = this.genProdType.bind(this)
-    this.genProdAllergen = this.genProdAllergen.bind(this)
-    this.genProdExtras = this.genProdExtras.bind(this)
+    this.handleProdName = this.handleProdName.bind(this);
+    this.handleProdPrice = this.handleProdPrice.bind(this);
+    this.handleProdDescription = this.handleProdDescription.bind(this);
+    this.genProdType = this.genProdType.bind(this);
+    this.genProdAllergen = this.genProdAllergen.bind(this);
+    this.genProdExtras = this.genProdExtras.bind(this);
+    this.submitProdAdd = this.submitProdAdd.bind(this);
     this.state = {
         name: '',
         price: 0,
         description: '',
         type: '',
-        inStock: null,
+        inStock: true,
         temperature: '',
         allergens: {
             dairy: false,
@@ -36,11 +37,34 @@ class AddProduct extends Component {
   }
   submitProdAdd(e) {
     e.preventDefault();
-    let name = this.state.name
-    let price = this.state.price
-    let description = this.state.description
-    this.props.handleAddSubmit(name, price, description)
+    let addedAllergens = []
+    let addedExtras = []
+    
+    for(let key in this.state.allergens){
+      if(this.state.allergens[key]) {
+        addedAllergens.push(key)
+      }
+    }
+    for(let key in this.state.extras){
+      if(this.state.extras[key]) {
+        addedExtras.push(key)
+      }
+    }
+    let newProduct = Object.assign({}, this.state, {
+      allergens: addedAllergens,
+      extras: addedExtras
+    });
+
+   axios.post('http://localhost:9007/products',  newProduct )
+   .then(response=>{
+     console.log(response)
+   })
+   .catch(error=>{
+     console.log(error)
+   })
 }
+
+
 handleProdName(e) {
     e.preventDefault();
     let val = e.target.value
@@ -76,8 +100,6 @@ genProdExtras(extra){
       this.setState({ extras: newExtras})
   }  
 }
-
-
 
   render() {
     //   console.log('PRODUCT!!!', this.props.selectedItem);
