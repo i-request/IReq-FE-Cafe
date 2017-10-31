@@ -23,7 +23,7 @@ class Admin extends Component {
       selectedItem: null,
       showStock: false,
       showEdit: false,
-      showAdd: true,
+      showAdd: false,
       type: []
     }
 
@@ -42,18 +42,6 @@ class Admin extends Component {
       .catch(console.log)
   }
 
-  // updateStockData(e) {
-  //   e.preventDefault();
-  //   console.log(e)
-  //   const _id = e.toString()
-  //   const bool = e.inStock
-  //   return axios.put(`http://localhost:9007/products/${_id}?inStock=${bool}`)
-  //     .then(res => {
-  //       // console.log(res)
-
-  //     })
-  //     .catch(console.log)
-  // }
 
   handleStock(e) {
     e.preventDefault();
@@ -74,22 +62,6 @@ class Admin extends Component {
     // Once found, populate selectedItem on state
     this.setState({ selectedItem })
   }
-
-  // handleProdEdit(e) {
-  //   e.preventDefault();
-  //   const nameStr = this.state.name
-
-  //   // const priceNum = this.state.selectedItem.price
-  //   // const descriptionStr = this.state.selectedItem.description
-  //   let newName = Object.assign({}, this.state.selectedItem, { name: this.state.selectedItem.name })
-  //   this.setState({ newName })
-  //       console.log(nameStr)
-  //   console.log(newName)
-  //   // console.log(name)
-  //   return axios.put(`http://localhost:9007/products/${this.state.selectedItem._id}?name=${nameStr}`)
-  //     .then(console.log("DONE!!!"))
-  //     .catch(console.log)
-  // }
 
   handleEditSubmit(name, price, description) {
    let id = this.state.selectedItem._id
@@ -147,42 +119,35 @@ class Admin extends Component {
                 Add Product
                 </button>}</div>
 
+                <div className="col-3">{this.state.selectedItem && <button
+                type="submit" id="editBtn"
+                className="btn btn-info"
+                onClick={this.toggleEdit.bind(this)}
+              >
+                Edit Product
+                </button>}</div>
 
-
+                <div className="col-3">{this.state.selectedItem && <button
+                type="submit" id="stockBtn"
+                className="btn btn-danger"
+                onClick={this.toggleStock.bind(this)}
+              >
+                Toggle Stock
+                </button>}</div>
 
             </div>
+            
 <div>&nbsp;</div>
-
-
 
                 {this.state.showAdd && <AddProduct selectedItem={this.state.selectedItem} handleProdAdd={this.handleProdAdd} handleAddSubmit={this.handleAddSubmit}/>}
 
 
 
           <form method="post" name="productSelect" id="productSelect">
-            <h2>Edit product:</h2>
-            {/* <div className="row">
-              <div className="col-6">
-                <label htmlFor="productSearch">Search product</label>
-                <input type="text" className="form-control" id="productSearch" aria-describedby="emailHelp" placeholder="Type product here" />
-              </div>
-              <div className="col-6">
-                <label htmlFor="productList">Select product from list</label>
-                <select className="form-control" id="filteredList">
+            <h2>Select product to edit or toggle stock:</h2>
 
-                  {this.state.products.map((product, index) => {
-                    return (
-                      <option className="card-text" key={index}>{product.name}</option>
-                    )
-                  })}
-                </select>
-              </div>
-            </div>
-            <div>&nbsp;</div>
-            <div>OR</div>
-            <div>&nbsp;</div> */}
             <div className="row">
-              <div className="col-2">
+              <div className="col-4">
                 <label htmlFor="productSearch">Drink or Food</label>
                 <select className="form-control" id="productType" onChange={this.handleOnSelect}>
                   <option className="card-text" value={null}>Please select...</option>
@@ -191,7 +156,7 @@ class Admin extends Component {
                   <option className="card-text" value="na">N/A</option>
                 </select>
               </div>
-              <div className="col-2">
+              <div className="col-4">
                 <label htmlFor="productSearch">Hot or Cold</label>
                 <select className="form-control" id="hotOrCold">
                   <option className="card-text" value={null}>Please select...</option>
@@ -200,7 +165,7 @@ class Admin extends Component {
                   <option value="na">N/A</option>
                 </select>
               </div>
-              <div className="col-2">
+              {/* <div className="col-2">
                 <label htmlFor="productSearch">Size</label>
                 <select className="form-control" id="hotOrCold">
                   <option className="card-text" value={null}>Please select...</option>
@@ -209,8 +174,8 @@ class Admin extends Component {
                   <option value="lg">Large</option>
                   <option value="na">N/A</option>
                 </select>
-              </div>
-              <div className="col-6">
+              </div> */}
+              <div className="col-4">
                 <label htmlFor="productSearch">Select product from list</label>
                 <select className="form-control" id="hotDrink" onChange={this.handleOnSelect}>
                   <option className="card-text" value={null} >Please select...</option>
@@ -222,43 +187,16 @@ class Admin extends Component {
                   })}
                 </select>
               </div>
-
             </div>
-            {/* {this.state.showEdit && <ChangeStock selectedItem={this.state.selectedItem} />}
-            <div>&nbsp;</div>
-            <div><h3>Update stock / remove from menu</h3></div>
-            <div className="form-group">
-                <label className="form-check-label">
-                  <span>{this.stockedProduct(this.state.selectedItem.inStock)}</span>
-                  In Stock
-                </label>
-                <small id="stockHelp" className="form-text text-muted">Un-tick if out of stock and to be removed from the menu.</small>
-            </div> */}
 
             <div>&nbsp;</div>
-
 
           </form>
-        </section>
-        <div className="row">
-        <div className="col-6">{this.state.selectedItem && <button
-                type="submit" id="stockBtn"
-                className="btn btn-danger"
-                onClick={this.toggleStock.bind(this)}
-              >
-                Toggle Stock
-                </button>}</div>
 
-              <div className="col-6">{this.state.selectedItem && <button
-                type="submit" id="editBtn"
-                className="btn btn-info"
-                onClick={this.toggleEdit.bind(this)}
-              >
-                Edit Product
-                </button>}</div>
-                </div>
+                <div>&nbsp;</div>
         {this.state.showStock && <Stock selectedItem={this.state.selectedItem} handleStock={this.handleStock} />}
         {this.state.showEdit && <EditProduct selectedItem={this.state.selectedItem}  handleProdEdit={this.handleProdEdit} handleEditSubmit={this.handleEditSubmit}/>}
+        </section>
       </div>
     )
   }

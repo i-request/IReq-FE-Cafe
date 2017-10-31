@@ -44,7 +44,7 @@ class Stock extends Component {
 <div>&nbsp;</div>
 <section className='container'>
   <form >
-            <h2>Stock check: </h2>
+            <h2>Stock toggle: </h2>
             <div className="row">
             </div>
 

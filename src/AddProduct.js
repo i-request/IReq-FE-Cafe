@@ -88,14 +88,14 @@ genProdType(val, key){
 }
   genProdAllergen(allergen){
     return (e)=> {
-      e.preventDefault();
+      // e.preventDefault();
       var newAllergen = Object.assign({}, this.state.allergens, {[allergen]: !this.state.allergens[allergen]})
       this.setState({ allergens: newAllergen})
   }  
 }
 genProdExtras(extra){
     return (e)=> {
-      e.preventDefault();
+      // e.preventDefault();
       var newExtras = Object.assign({}, this.state.extras, {[extra]: !this.state.extras[extra]})
       this.setState({ extras: newExtras})
   }  
@@ -112,7 +112,7 @@ genProdExtras(extra){
 <form method="post" name="addProduct" id="addProduct">
 <h2>Add product:</h2>
 <div className="row">
-    <div className="col-4">
+    <div className="col-6">
     <label for="addName">Name:</label>
     <input type="text" className="form-control" id="addName" aria-describedby="addName" placeholder="Type name" onChange={this.handleProdName}/>
     </div>
@@ -120,21 +120,42 @@ genProdExtras(extra){
     <label for="addDescription">Description:</label>
     <textarea className="form-control" id="addDescription" rows="1" placeholder="Add description" defaultValue="addDescription" onChange={this.handleProdDescription}></textarea>
   </div>
-    <div className="col-2">
+</div>
+
+ {/*<div className="row">
+  <div className="col-2">Type:</div>
+  <div className="col-2">Hot or Cold:</div>
+  <div className="col-4">Allergens:</div>
+  <div className="col-4">Extras:</div>
+  </div> */}
+
+<div className="row">
+
+<div className="col-4">
+                <label htmlFor="productSearch">Food or Drink:</label>
+                <select className="form-control" id="productType"  onSelect={this.genProdType('type')}>
+                  <option className="card-text" value={null}>Please select...</option>
+                  <option className="card-text" value="food">Food</option>
+                  <option className="card-text" value="drink">Drink</option>
+                  <option className="card-text" value="na">N/A</option>
+                </select>
+              </div>
+              <div className="col-4">
+                <label htmlFor="productSearch">Hot or Cold:</label>
+                <select className="form-control" id="hotOrCold"  onSelect={this.genProdType('temperature')}>
+                  <option className="card-text" value={null}>Please select...</option>
+                  <option value="hot">Hot</option>
+                  <option value="cold">Cold</option>
+                  <option value="na">N/A</option>
+                  </select>
+              </div>
+              <div className="col-4">
     <label htmlFor="addPrice">Price (pence):</label>
     <input type="number" className="form-control" id="addPrice" aria-describedby="addPrice" placeholder="Type price"  onChange={this.handleProdPrice}/>
     </div>
 </div>
 
-<div className="row">
-  <div className="col-2">Type:</div>
-  <div className="col-2">Hot or Cold:</div>
-  <div className="col-4">Allergens:</div>
-  <div className="col-4">Extras:</div>
-  </div>
-
-<div className="row">
-  <div className="col-2">
+  {/* <div className="col-2">
       <div className="form-check">
 
       <label class="custom-control custom-radio">
@@ -168,9 +189,15 @@ genProdExtras(extra){
   <span class="custom-control-description">Cold</span>
 </label>
 </div>
-  </div>
+  </div> */}
+  <div>&nbsp;</div>
+<div className="row">
+  <div className="col-6">Allergens:</div>
+  <div className="col-6">Extras:</div>
+</div>
 
-  <div className="col-4 display: inline-block">  
+<div className="row">
+  <div className="col-6">  
       <div className="form-check-inline">
       <label className="form-check-label">
   <input className="form-check-input" type="checkbox" value="dairy" onClick={this.genProdAllergen('dairy')}/>
@@ -209,33 +236,34 @@ genProdExtras(extra){
 </div>
 </div>
 
-<div className="col-4">  
+<div className="col-6">  
       <div className="form-check-inline">
       <label className="form-check-label">
-  <input className="form-check-input" type="checkbox" value="milk" onChange={this.genProdExtras('milk')}/>
-  Milk
+  <input className="form-check-input" type="checkbox" value="milk" onClick={this.genProdExtras('milk')}/>
+Milk
 </label>
 </div>
 <div className="form-check-inline">
 <label className="form-check-label">
-  <input className="form-check-input" type="checkbox" value="sugar" onChange={this.genProdExtras('sugar')}/>
+  <input className="form-check-input" type="checkbox" value="sugar" onClick={this.genProdExtras('sugar')}/>
   Sugar
 </label>
 </div>
 <div className="form-check-inline">
 <label className="form-check-label">
-  <input className="form-check-input" type="checkbox" value="ketchup" onChange={this.genProdExtras('ketchup')}/>
-  Ketchup
+  <input className="form-check-input" type="checkbox" value="ketchup" onClick={this.genProdExtras('ketchup')}/>
+Ketchup
 </label>
 </div>
 <div className="form-check-inline">
 <label className="form-check-label">
-  <input className="form-check-input" type="checkbox" value="mustard" onChange={this.genProdExtras('mustard')}/>
-  Mustard
+  <input className="form-check-input" type="checkbox" value="mustard" onClick={this.genProdExtras('mustard')}/>
+Mustard
 </label>
 </div>
 </div>
 </div>
+
 <div>&nbsp;</div>
 
 <button type="submit" className="btn btn-primary" onClick={this.submitProdAdd}>Submit</button>
