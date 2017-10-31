@@ -23,7 +23,7 @@ class Admin extends Component {
       selectedItem: null,
       showStock: false,
       showEdit: false,
-      showAdd: false,
+      showAdd: true,
       type: []
     }
 
@@ -116,11 +116,6 @@ class Admin extends Component {
   //  name: name, price: price, description: description, type: type, allergens: allergens, extras: extras 
 
 
-  // stockedProduct() {
-  //   console.log(this.state.selectedItem)
-  //   return this.state.selectedItem.inStock ? <input type="checkbox" className="form-check-input" defaultChecked="check" /> : <input type="checkbox" className="form-check-input" />
-  // }
-
   toggleStock(e) {
     e.preventDefault();
     // console.log(e.target.id)
@@ -142,8 +137,30 @@ class Admin extends Component {
     return (
       <div>
         <section className='container'>
+          <h2>&nbsp;</h2>
+          <div className="row">
+          <div className="col-4">{<button
+                type="submit" id="addBtn"
+                className="btn btn-warning"
+                onClick={this.toggleAdd.bind(this)}
+              >
+                Add Product
+                </button>}</div>
+
+
+
+
+            </div>
+<div>&nbsp;</div>
+
+
+
+                {this.state.showAdd && <AddProduct selectedItem={this.state.selectedItem} handleProdAdd={this.handleProdAdd} handleAddSubmit={this.handleAddSubmit}/>}
+
+
+
           <form method="post" name="productSelect" id="productSelect">
-            <h2>Select product:</h2>
+            <h2>Edit product:</h2>
             {/* <div className="row">
               <div className="col-6">
                 <label htmlFor="productSearch">Search product</label>
@@ -165,20 +182,32 @@ class Admin extends Component {
             <div>OR</div>
             <div>&nbsp;</div> */}
             <div className="row">
-              <div className="col-3">
+              <div className="col-2">
                 <label htmlFor="productSearch">Drink or Food</label>
                 <select className="form-control" id="productType" onChange={this.handleOnSelect}>
                   <option className="card-text" value={null}>Please select...</option>
                   <option className="card-text" value="food">Food</option>
                   <option className="card-text" value="drink">Drink</option>
+                  <option className="card-text" value="na">N/A</option>
                 </select>
               </div>
-              <div className="col-3">
+              <div className="col-2">
                 <label htmlFor="productSearch">Hot or Cold</label>
                 <select className="form-control" id="hotOrCold">
                   <option className="card-text" value={null}>Please select...</option>
-                  <option value="1">Hot</option>
-                  <option value="2">Cold</option>
+                  <option value="hot">Hot</option>
+                  <option value="cold">Cold</option>
+                  <option value="na">N/A</option>
+                </select>
+              </div>
+              <div className="col-2">
+                <label htmlFor="productSearch">Size</label>
+                <select className="form-control" id="hotOrCold">
+                  <option className="card-text" value={null}>Please select...</option>
+                  <option value="sm">Small</option>
+                  <option value="rg">Regular</option>
+                  <option value="lg">Large</option>
+                  <option value="na">N/A</option>
                 </select>
               </div>
               <div className="col-6">
@@ -205,15 +234,14 @@ class Admin extends Component {
                 </label>
                 <small id="stockHelp" className="form-text text-muted">Un-tick if out of stock and to be removed from the menu.</small>
             </div> */}
-            {/* <button 
-                  type="submit" 
-                  className="btn btn-primary"
-                >
-                  Submit
-                </button>    */}
+
             <div>&nbsp;</div>
-            <div className="row">
-              <div className="col-4">{this.state.selectedItem && <button
+
+
+          </form>
+        </section>
+        <div className="row">
+        <div className="col-6">{this.state.selectedItem && <button
                 type="submit" id="stockBtn"
                 className="btn btn-danger"
                 onClick={this.toggleStock.bind(this)}
@@ -221,28 +249,16 @@ class Admin extends Component {
                 Toggle Stock
                 </button>}</div>
 
-              <div className="col-4">{this.state.selectedItem && <button
+              <div className="col-6">{this.state.selectedItem && <button
                 type="submit" id="editBtn"
                 className="btn btn-info"
                 onClick={this.toggleEdit.bind(this)}
               >
                 Edit Product
                 </button>}</div>
-
-              <div className="col-4">{this.state.selectedItem && <button
-                type="submit" id="addBtn"
-                className="btn btn-warning"
-                onClick={this.toggleAdd.bind(this)}
-              >
-                Add Product
-                </button>}</div>
-            </div>
-
-          </form>
-        </section>
-        <span id="">{this.state.showStock && <Stock selectedItem={this.state.selectedItem} handleStock={this.handleStock} />}</span>
+                </div>
+        {this.state.showStock && <Stock selectedItem={this.state.selectedItem} handleStock={this.handleStock} />}
         {this.state.showEdit && <EditProduct selectedItem={this.state.selectedItem}  handleProdEdit={this.handleProdEdit} handleEditSubmit={this.handleEditSubmit}/>}
-        {this.state.showAdd && <AddProduct selectedItem={this.state.selectedItem} handleProdAdd={this.handleProdAdd} handleAddSubmit={this.handleAddSubmit}/>}
       </div>
     )
   }
