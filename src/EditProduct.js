@@ -43,44 +43,44 @@ class EditProduct extends Component {
         return (
 
             <div>
-                <div>&nbsp;</div>
                 <section className='container'>
                     <form>
                         <h2>Edit product:</h2>
                         <div className="row">
                             <div className="col-3">
-                                <label htmlFor="currentDescription">Current name</label>
+                                <label htmlFor="currentDescription">Current name:</label>
                                 <input type="text" className="form-control" id="oldName" aria-describedby="oldName" disabled placeholder={name} />
                             </div>
                             <div className="col-3">
-                                <label htmlFor="currentPrice">Current price (pence)</label>
+                                <label htmlFor="currentPrice">Current price (pence):</label>
                                 <input type="number" className="form-control" id="oldPrice" aria-describedby="emailHelp" disabled placeholder={price} />
                             </div>
                             <div className="col-3">
-                                <label htmlFor="newDescription">New name</label>
+                                <label htmlFor="newDescription">New name:</label>
                                 <input type="text" className="form-control" id="newName" aria-describedby="newName" placeholder="Type new name" onChange={this.handleProdName}/>
                             </div>
                             <div className="col-3">
-                                <label htmlFor="newPrice">New price (pence)</label>
+                                <label htmlFor="newPrice">New price (pence):</label>
                                 <input type="number" className="form-control" id="newPrice" aria-describedby="emailHelp" placeholder="Type new price (pence)"  onChange={this.handleProdPrice}/>
                             </div>
                         </div>
                         <div>&nbsp;</div>
-                        <div className="row">
+                        {/* <div className="row">
                             <div className="form-group col-6">
-                                <label htmlFor="currentProductDescription">Current description</label>
+                                <label htmlFor="currentProductDescription">Current description:</label>
                                 <textarea className="form-control" id="currentProductDescription" rows="3" placeholder='' value={description} disabled >{description}</textarea>
                             </div>
 
                             <div className="form-group col-6">
-                                <label htmlFor="newProductDescription">New description</label>
+                                <label htmlFor="newProductDescription">New description:</label>
                                 <textarea className="form-control" id="currentProductDescription" rows="3" placeholder='Add new description' onChange={this.handleProdDescription} ></textarea>
                             </div>
-                        </div>
+                        </div> */}
 
                         <button type="submit" className="btn btn-primary" onClick={this.submitProdEdit}>Submit</button>
                     </form>
                 </section>
+                <div>&nbsp;</div>
             </div>
         )
     }

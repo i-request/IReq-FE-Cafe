@@ -329,8 +329,17 @@ p {
   height: 100%;
 }
 
+.quantity-right {
+  float: right;
+  margin-right: 27px
+}
+
 .right {
   margin-left: 15px
+}
+
+.center-line {
+  text-align: center
 }
 
 .col-no-padding-left{
