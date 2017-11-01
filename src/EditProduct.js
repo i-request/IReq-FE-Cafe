@@ -43,7 +43,8 @@ class EditProduct extends Component {
         return (
 
             <div>
-                <section className='container-fluid'>
+                    <div>&nbsp;</div>
+                    <hr/>
                     <form>
                         <h2>Edit product:</h2>
                         <div className="row">
@@ -61,7 +62,7 @@ class EditProduct extends Component {
                             </div>
                             <div className="col-3">
                                 <label htmlFor="newPrice">New price (pence):</label>
-                                <input type="number" className="form-control" id="newPrice" aria-describedby="emailHelp" placeholder="Type new price (pence)"  onChange={this.handleProdPrice}/>
+                                <input type="number" className="form-control" id="newPrice" aria-describedby="emailHelp" placeholder="Type new price"  onChange={this.handleProdPrice}/>
                             </div>
                         </div>
                         <div>&nbsp;</div>
@@ -79,7 +80,6 @@ class EditProduct extends Component {
 
                         <button type="submit" className="btn btn-primary" onClick={this.submitProdEdit}>Submit</button>
                     </form>
-                </section>
                 <div>&nbsp;</div>
             </div>
         )

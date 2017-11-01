@@ -228,11 +228,10 @@ class Admin extends Component {
               </div>
             </div>
 
-            <div>&nbsp;</div>
 
           </form>
 
-                <div>&nbsp;</div>
+
         {this.state.showStock && <Stock selectedItem={this.state.selectedItem} handleStock={this.handleStock} />}
         {this.state.showEdit && <EditProduct selectedItem={this.state.selectedItem}  handleProdEdit={this.handleProdEdit} handleEditSubmit={this.handleEditSubmit}/>}
         </section>

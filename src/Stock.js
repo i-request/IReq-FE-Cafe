@@ -42,7 +42,7 @@ class Stock extends Component {
 
 <div>
 <div>&nbsp;</div>
-
+<hr/>
             <h2>Stock toggle: </h2>
 
             <span className="span-width" id="stock" onClick={this.props.handleStock}>{this.stockedProduct(inStock)}</span>
