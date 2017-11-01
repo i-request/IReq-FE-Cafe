@@ -196,11 +196,12 @@ return this.genFilter(firstRun,prop2,boole)()}
                           <div key={index}>
                             <li className="card-text">{element.name}<span className="quantity-right">{element.quantity}</span></li>
                             <p className="extras">Extras: {e}</p>
-                            <p className="additional_info">Message: {item.additional_instructions}</p>
-                            <p className="center-line">~~~</p>
+                            <p className="center-line">-+-</p>
                           </div>
                         )
                       })}
+                                                  <p className="additional_info">Message: {item.additional_instructions}</p>
+                                                  <p className="center-line">~~~</p>
                       <h4 className="ticket-user-details-header">User Details</h4>
                       {[item.user_details].map((user, index) => {
 
