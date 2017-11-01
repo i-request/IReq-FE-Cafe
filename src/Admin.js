@@ -11,6 +11,7 @@ class Admin extends Component {
     this.fetchProducts = this.fetchProducts.bind(this)
     this.handleOnSelect = this.handleOnSelect.bind(this)
     this.handleOnTypeSelect = this.handleOnTypeSelect.bind(this)
+    this.handleOnTempSelect = this.handleOnTempSelect.bind(this)
     // this.updateStockData = this.updateStockData.bind(this)
     // this.stockedProduct = this.stockedProduct.bind(this)
     this.toggleStock = this.toggleStock.bind(this)
@@ -65,14 +66,20 @@ class Admin extends Component {
     this.setState({ selectedItem })
   }
 
-  // handleOnTypeSelect(e) {
-  //   // console.log(this.state.products)
-  //   console.log(e.target.value)
-  //   // find the specific product thats id matches product id from e
-  //   const foodOrDrink = e.target.value
-  //   // Once found, populate selectedItem on state
-  //   this.setState({ foodOrDrink })
-  // }
+  handleOnTypeSelect(e) {
+    // console.log(this.state.products)
+    // console.log(e.target.value)
+    // find the specific product thats id matches product id from e
+    const foodOrDrink = e.target.value
+    // Once found, populate selectedItem on state
+    this.setState({ foodOrDrink })
+  }
+
+  handleOnTempSelect(e) {
+    const hotOrCold = e.target.value
+
+    this.setState({ hotOrCold })
+  }
 
   handleEditSubmit(name, price, description) {
    let id = this.state.selectedItem._id
@@ -116,10 +123,12 @@ class Admin extends Component {
   }
 
 
+
   render() {
     return (
       <div>
         <section className='container-fluid'>
+          <div>&nbsp;</div>
           <div className="row">
           
           <div className="col-4">{<button
@@ -170,7 +179,7 @@ class Admin extends Component {
               </div>
               <div className="col-4">
                 <label htmlFor="productSearch">Hot or Cold</label>
-                <select className="form-control" id="hotOrCold">
+                <select className="form-control" id="hotOrCold" onChange={this.handleOnTempSelect}>
                   <option className="card-text" value={null}>Please select...</option>
                   <option value="hot">Hot</option>
                   <option value="cold">Cold</option>
@@ -191,12 +200,14 @@ class Admin extends Component {
                 <label htmlFor="productSearch">Select product from list</label>
                 <select className="form-control" id="hotDrink" onChange={this.handleOnSelect}>
                   <option className="card-text" value={null} >Please select...</option>
-                  {this.state.products.map((product, index) => {
-                    product.type === "hot drink"
-                    return (
-                      <option className="card-text" value={product._id} key={index}>{product.name}</option>
-                    )
-                  })}
+                  {this.state.products.reduce((acc, product, index) => {
+                    let option = (<option className="card-text" value={product._id} key={index}>{product.name}</option>)
+                    if(this.state.foodOrDrink === null && product.temperature === this.state.hotOrCold) acc.push(option)
+                    else if (this.state.hotOrCold === null && product.type === this.state.foodOrDrink) acc.push(option)
+                    else if (product.type === this.state.foodOrDrink && product.temperature === this.state.hotOrCold) acc.push(option);
+                    return acc;
+                     return 
+                  }, [])}
                 </select>
               </div>
             </div>

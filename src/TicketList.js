@@ -168,7 +168,7 @@ return this.genFilter(firstRun,prop2,boole)()}
             return (
               <div className="col-md-4 col-no-padding-left">
                 <div className="card bg-light mb-3 tickets" key={i}>
-                  <div className="card-header ticket-header" key={i}><img className="rounded" src="../images/co-op.png" width="40" height="40" alt='Company Logo'/>
+                  <div className="card-header ticket-header" key={i}><img className="rounded" src={`../images/${item.user_details.user_company}.png`} width="40" height="40" alt='Company Logo'/>
                     {/* <span className="left align-top padded">{item.user_details.user_name}</span> */}
                     <span className="right">Order Number:
                       <strong>{item.order_num}</strong>
@@ -183,7 +183,7 @@ return this.genFilter(firstRun,prop2,boole)()}
                             <h6 className="ticket-product-headers">Product</h6>
                           </div>
                           <div className="col-md-3 remove-right-padding">
-                            <h6 className="ticket-product-headers">QTY</h6>
+                            <h6 className="ticket-product-headers">Qty</h6>
                           </div>
                         </div>
                       </div>
@@ -195,7 +195,9 @@ return this.genFilter(firstRun,prop2,boole)()}
                         return (
                           <div key={index}>
                             <li className="card-text">{element.name}<span className="quantity-right">{element.quantity}</span></li>
-                            <p className="extras">extras: {e}</p>
+                            <p className="extras">Extras: {e}</p>
+                            <p className="additional_info">Message: {item.additional_instructions}</p>
+                            <p className="center-line">~~~</p>
                           </div>
                         )
                       })}

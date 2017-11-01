@@ -65,7 +65,7 @@ class EditProduct extends Component {
                             </div>
                         </div>
                         <div>&nbsp;</div>
-                        <div className="row">
+                        {/* <div className="row">
                             <div className="form-group col-6">
                                 <label htmlFor="currentProductDescription">Current description:</label>
                                 <textarea className="form-control" id="currentProductDescription" rows="3" placeholder='' value={description} disabled >{description}</textarea>
@@ -75,7 +75,7 @@ class EditProduct extends Component {
                                 <label htmlFor="newProductDescription">New description:</label>
                                 <textarea className="form-control" id="currentProductDescription" rows="3" placeholder='Add new description' onChange={this.handleProdDescription} ></textarea>
                             </div>
-                        </div>
+                        </div> */}
 
                         <button type="submit" className="btn btn-primary" onClick={this.submitProdEdit}>Submit</button>
                     </form>
