@@ -207,19 +207,19 @@ return this.genFilter(firstRun,prop2,boole)()}
                         return (
                           <div key={i}>
                             <li className="card-text">
-                              <span className="user-details-style">Name:</span>
+                              <span className="user-details-style">Name: </span>
                               {user.user_name}</li>
+                            {/* <li className="card-text">
+                              <span className="user-details-style">Email: </span>
+                              {user.email}</li> */}
                             <li className="card-text">
-                              <span className="user-details-style">Email:</span>
-                              {user.email}</li>
-                            <li className="card-text">
-                              <span className="user-details-style">Number:</span>
+                              <span className="user-details-style">Number: </span>
                               {user.phone_num}</li>
+                            {/* <li className="card-text">
+                              <span className="user-details-style">Company: </span>
+                              {user.user_company}</li> */}
                             <li className="card-text">
-                              <span className="user-details-style">Company:</span>
-                              {user.user_company}</li>
-                            <li className="card-text">
-                              <span className="user-details-style">Floor:</span>
+                              <span className="user-details-style">Floor: </span>
                               {user.user_floor}</li>
                           </div>
                         )
