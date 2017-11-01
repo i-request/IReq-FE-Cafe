@@ -26,8 +26,8 @@ class Admin extends Component {
       showStock: false,
       showEdit: false,
       showAdd: false,
-      foodOrDrink: null,
-      hotOrCold: null
+      foodOrDrink: 'all',
+      hotOrCold: 'all'
     }
 
 
@@ -187,19 +187,17 @@ class Admin extends Component {
               <div className="col-4">
                 <label htmlFor="productSearch">Food or Drink</label>
                 <select className="form-control" id="foodOrDrink" onChange={this.handleOnTypeSelect}>
-                  <option className="card-text" value={null}>Please select...</option>
+                  <option className="card-text" value="all">All</option>
                   <option className="card-text" value="food">Food</option>
                   <option className="card-text" value="drink">Drink</option>
-                  <option className="card-text" value="null">N/A</option>
                 </select>
               </div>
               <div className="col-4">
                 <label htmlFor="productSearch">Hot or Cold</label>
                 <select className="form-control" id="hotOrCold" onChange={this.handleOnTempSelect}>
-                  <option className="card-text" value={null}>Please select...</option>
+                  <option className="card-text" value="all">All</option>
                   <option value="hot">Hot</option>
                   <option value="cold">Cold</option>
-                  <option value="null">N/A</option>
                 </select>
               </div>
               {/* <div className="col-2">
@@ -218,8 +216,9 @@ class Admin extends Component {
                   <option className="card-text" value={null} >Please select...</option>
                   {this.state.products.reduce((acc, product, index) => {
                     let option = (<option className="card-text" value={product._id} key={index}>{product.name}</option>)
-                    if(this.state.foodOrDrink === null && product.temperature === this.state.hotOrCold) acc.push(option)
-                    else if (this.state.hotOrCold === null && product.type === this.state.foodOrDrink) acc.push(option)
+                    if(this.state.foodOrDrink === 'all' && this.state.hotOrCold === 'all') acc.push(option); 
+                    else if (this.state.foodOrDrink === 'all' && product.temperature === this.state.hotOrCold) acc.push(option)
+                    else if (this.state.hotOrCold === 'all' && product.type === this.state.foodOrDrink) acc.push(option)
                     else if (product.type === this.state.foodOrDrink && product.temperature === this.state.hotOrCold) acc.push(option);
                     return acc;
                      return 
