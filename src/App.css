@@ -342,6 +342,18 @@ p {
   text-align: center
 }
 
+.span-width {
+  display: inline-block;
+  width: 300px;
+}
+
+.section-margin {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
 .col-no-padding-left{
 
 }

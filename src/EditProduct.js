@@ -43,7 +43,7 @@ class EditProduct extends Component {
         return (
 
             <div>
-                <section className='container'>
+                <section className='container-fluid'>
                     <form>
                         <h2>Edit product:</h2>
                         <div className="row">

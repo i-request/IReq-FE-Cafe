@@ -45,7 +45,7 @@ class Stock extends Component {
 
             <h2>Stock toggle: </h2>
 
-            <span id="stock" onClick={this.props.handleStock}>{this.stockedProduct(inStock)}</span>
+            <span className="span-width" id="stock" onClick={this.props.handleStock}>{this.stockedProduct(inStock)}</span>
 
       </div>
     )

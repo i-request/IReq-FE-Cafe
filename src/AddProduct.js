@@ -9,16 +9,19 @@ class AddProduct extends Component {
     this.handleProdPrice = this.handleProdPrice.bind(this);
     this.handleProdDescription = this.handleProdDescription.bind(this);
     this.genProdType = this.genProdType.bind(this);
+    this.genProdTemp = this.genProdTemp.bind(this);
     this.genProdAllergen = this.genProdAllergen.bind(this);
     this.genProdExtras = this.genProdExtras.bind(this);
     this.submitProdAdd = this.submitProdAdd.bind(this);
+    this.renderAdd = this.renderAdd.bind(this);
     this.state = {
+        submit: false,
         name: '',
         price: 0,
         description: '',
-        type: '',
+        type: null,
         inStock: true,
-        temperature: '',
+        temperature: null,
         allergens: {
             dairy: false,
             gluten: false,
@@ -62,6 +65,7 @@ class AddProduct extends Component {
    .catch(error=>{
      console.log(error)
    })
+   this.setState({ submit: true })
 }
 
 
@@ -80,12 +84,27 @@ handleProdDescription(e) {
     let val = e.target.value
     this.setState({ description: val })
 }
-genProdType(val, key){
-    return (e)=> {
-      e.preventDefault();
-      this.setState({ [key]: val })
-  }
+// genProdType(val){
+//     return (e)=> {
+//       e.preventDefault();
+//       this.setState({ type: val })
+//   }
+// }
+
+genProdType(e) {
+  console.log(e.target.value)
+  const val = e.target.value
+    this.setState({ type: val })
+  // const hotOrCold = e.target.value
 }
+
+genProdTemp(e) {
+  console.log(e.target.value)
+  const val = e.target.value
+    this.setState({ temperature: val })
+  // const hotOrCold = e.target.value
+}
+
   genProdAllergen(allergen){
     return (e)=> {
       // e.preventDefault();
@@ -93,12 +112,26 @@ genProdType(val, key){
       this.setState({ allergens: newAllergen})
   }  
 }
-genProdExtras(extra){
+    genProdExtras(extra){
     return (e)=> {
       // e.preventDefault();
       var newExtras = Object.assign({}, this.state.extras, {[extra]: !this.state.extras[extra]})
       this.setState({ extras: newExtras})
   }  
+}
+
+renderAdd(bool) {
+  const colorClass = bool
+    ? 'success'
+    : 'primary';
+  const viewIcon = bool
+    ? 'check'
+    : ' ';
+  return (
+    <button id='addBtn' className={`btn viewed-done-btn btn-${colorClass}`}>Submit&nbsp; 
+      <i className={`fa fa-${viewIcon}`} aria-hidden="true"></i>
+    </button>
+  );
 }
 
   render() {
@@ -112,44 +145,29 @@ genProdExtras(extra){
 <form method="post" name="addProduct" id="addProduct">
 <h2>Add product:</h2>
 <div className="row">
-    <div className="col-6">
-    <label for="addName">Name:</label>
+    <div className="col-3">
+    <label htmlFor="addName">Name:</label>
     <input type="text" className="form-control" id="addName" aria-describedby="addName" placeholder="Type name" onChange={this.handleProdName}/>
     </div>
-    <div className="form-group col-6">
-    <label for="addDescription">Description:</label>
-    <textarea className="form-control" id="addDescription" rows="1" placeholder="Add description" defaultValue="addDescription" onChange={this.handleProdDescription}></textarea>
-  </div>
-</div>
-
- {/*<div className="row">
-  <div className="col-2">Type:</div>
-  <div className="col-2">Hot or Cold:</div>
-  <div className="col-4">Allergens:</div>
-  <div className="col-4">Extras:</div>
-  </div> */}
-
-<div className="row">
-
-<div className="col-4">
-                <label htmlFor="productSearch">Food or Drink:</label>
-                <select className="form-control" id="productType"  onSelect={this.genProdType('type')}>
+<div className="col-3">
+                <label htmlFor="type">Food or Drink:</label>
+                <select className="form-control" id="type"  onChange={this.genProdType}>
                   <option className="card-text" value={null}>Please select...</option>
                   <option className="card-text" value="food">Food</option>
                   <option className="card-text" value="drink">Drink</option>
                   <option className="card-text" value="na">N/A</option>
                 </select>
               </div>
-              <div className="col-4">
-                <label htmlFor="productSearch">Hot or Cold:</label>
-                <select className="form-control" id="hotOrCold"  onSelect={this.genProdType('temperature')}>
+              <div className="col-3">
+                <label htmlFor="temperature">Hot or Cold:</label>
+                <select className="form-control" id="temperature"  onChange={this.genProdTemp}>
                   <option className="card-text" value={null}>Please select...</option>
                   <option value="hot">Hot</option>
                   <option value="cold">Cold</option>
                   <option value="na">N/A</option>
                   </select>
               </div>
-              <div className="col-4">
+              <div className="col-3">
     <label htmlFor="addPrice">Price (pence):</label>
     <input type="number" className="form-control" id="addPrice" aria-describedby="addPrice" placeholder="Type price"  onChange={this.handleProdPrice}/>
     </div>
@@ -266,7 +284,7 @@ Mustard
 
 <div>&nbsp;</div>
 
-<button type="submit" className="btn btn-primary" onClick={this.submitProdAdd}>Submit</button>
+<span id="addBtn" className="span-width" onClick={this.submitProdAdd}>{this.renderAdd(this.state.submit)}</span>
 
 </form>
         </section>

@@ -76,8 +76,8 @@ class Admin extends Component {
   }
 
   handleOnTempSelect(e) {
+    // console.log(e.target)
     const hotOrCold = e.target.value
-
     this.setState({ hotOrCold })
   }
 
@@ -127,11 +127,11 @@ class Admin extends Component {
   render() {
     return (
       <div>
-        <section className='container-fluid'>
+        <section className='container section-margin'>
           <div>&nbsp;</div>
           <div className="row">
           
-          <div className="col-4">{<button
+          <div className="col-12">{<button
                 type="submit" id="addBtn"
                 className="btn btn-warning"
                 onClick={this.toggleAdd.bind(this)}
@@ -139,7 +139,7 @@ class Admin extends Component {
                 Add Product
                 </button>}</div>
 
-                <div className="col-3">{this.state.selectedItem && <button
+                {/* <div className="col-3">{this.state.selectedItem && <button
                 type="submit" id="editBtn"
                 className="btn btn-info"
                 onClick={this.toggleEdit.bind(this)}
@@ -153,7 +153,7 @@ class Admin extends Component {
                 onClick={this.toggleStock.bind(this)}
               >
                 Toggle Stock
-                </button>}</div>
+                </button>}</div> */}
 
             </div>
           <div>&nbsp;</div>
@@ -163,18 +163,34 @@ class Admin extends Component {
 
 
 
-
+<hr/>
           <form method="post" name="productSelect" id="productSelect">
-            <h2>Select product to edit or toggle stock:</h2>
+            <div className="row">
+            <div className="col-6"><h2>Select product to edit or toggle stock:</h2></div>
+            <div className="col-3">{this.state.selectedItem && <button
+                type="submit" id="editBtn"
+                className="btn btn-info"
+                onClick={this.toggleEdit.bind(this)}
+              >
+                Edit Product
+                </button>}</div>
+            <div className="col-3">{this.state.selectedItem && <button
+                type="submit" id="stockBtn"
+                className="btn btn-danger"
+                onClick={this.toggleStock.bind(this)}
+              >
+                Toggle Stock
+                </button>}</div>
 
+</div>
             <div className="row">
               <div className="col-4">
-                <label htmlFor="productSearch">Drink or Food</label>
+                <label htmlFor="productSearch">Food or Drink</label>
                 <select className="form-control" id="foodOrDrink" onChange={this.handleOnTypeSelect}>
                   <option className="card-text" value={null}>Please select...</option>
                   <option className="card-text" value="food">Food</option>
                   <option className="card-text" value="drink">Drink</option>
-                  <option className="card-text" value="na">N/A</option>
+                  <option className="card-text" value="null">N/A</option>
                 </select>
               </div>
               <div className="col-4">
@@ -183,7 +199,7 @@ class Admin extends Component {
                   <option className="card-text" value={null}>Please select...</option>
                   <option value="hot">Hot</option>
                   <option value="cold">Cold</option>
-                  <option value="na">N/A</option>
+                  <option value="null">N/A</option>
                 </select>
               </div>
               {/* <div className="col-2">
