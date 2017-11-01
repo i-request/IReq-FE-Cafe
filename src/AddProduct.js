@@ -108,7 +108,7 @@ genProdExtras(extra){
 
 <div>
 <div>&nbsp;</div>
-<section className='container'>
+<section className='container-fluid'>
 <form method="post" name="addProduct" id="addProduct">
 <h2>Add product:</h2>
 <div className="row">

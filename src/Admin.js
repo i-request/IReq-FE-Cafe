@@ -10,6 +10,7 @@ class Admin extends Component {
     super(props)
     this.fetchProducts = this.fetchProducts.bind(this)
     this.handleOnSelect = this.handleOnSelect.bind(this)
+    this.handleOnTypeSelect = this.handleOnTypeSelect.bind(this)
     // this.updateStockData = this.updateStockData.bind(this)
     // this.stockedProduct = this.stockedProduct.bind(this)
     this.toggleStock = this.toggleStock.bind(this)
@@ -24,7 +25,8 @@ class Admin extends Component {
       showStock: false,
       showEdit: false,
       showAdd: false,
-      type: []
+      foodOrDrink: null,
+      hotOrCold: null
     }
 
 
@@ -62,6 +64,15 @@ class Admin extends Component {
     // Once found, populate selectedItem on state
     this.setState({ selectedItem })
   }
+
+  // handleOnTypeSelect(e) {
+  //   // console.log(this.state.products)
+  //   console.log(e.target.value)
+  //   // find the specific product thats id matches product id from e
+  //   const foodOrDrink = e.target.value
+  //   // Once found, populate selectedItem on state
+  //   this.setState({ foodOrDrink })
+  // }
 
   handleEditSubmit(name, price, description) {
    let id = this.state.selectedItem._id
@@ -108,9 +119,9 @@ class Admin extends Component {
   render() {
     return (
       <div>
-        <section className='container'>
-          <h2>&nbsp;</h2>
+        <section className='container-fluid'>
           <div className="row">
+          
           <div className="col-4">{<button
                 type="submit" id="addBtn"
                 className="btn btn-warning"
@@ -136,10 +147,11 @@ class Admin extends Component {
                 </button>}</div>
 
             </div>
+          <div>&nbsp;</div>
+                {this.state.showAdd && <AddProduct selectedItem={this.state.selectedItem} handleProdAdd={this.handleProdAdd} handleAddSubmit={this.handleAddSubmit}/>}
             
 <div>&nbsp;</div>
 
-                {this.state.showAdd && <AddProduct selectedItem={this.state.selectedItem} handleProdAdd={this.handleProdAdd} handleAddSubmit={this.handleAddSubmit}/>}
 
 
 
@@ -149,7 +161,7 @@ class Admin extends Component {
             <div className="row">
               <div className="col-4">
                 <label htmlFor="productSearch">Drink or Food</label>
-                <select className="form-control" id="productType" onChange={this.handleOnSelect}>
+                <select className="form-control" id="foodOrDrink" onChange={this.handleOnTypeSelect}>
                   <option className="card-text" value={null}>Please select...</option>
                   <option className="card-text" value="food">Food</option>
                   <option className="card-text" value="drink">Drink</option>

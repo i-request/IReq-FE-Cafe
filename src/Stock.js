@@ -42,15 +42,11 @@ class Stock extends Component {
 
 <div>
 <div>&nbsp;</div>
-<section className='container'>
-  <form >
+
             <h2>Stock toggle: </h2>
-            <div className="row">
-            </div>
 
             <span id="stock" onClick={this.props.handleStock}>{this.stockedProduct(inStock)}</span>
-          </form>
-        </section>
+
       </div>
     )
   }

@@ -194,7 +194,7 @@ return this.genFilter(firstRun,prop2,boole)()}
                         }
                         return (
                           <div key={index}>
-                            <li className="card-text">{element.name}</li>
+                            <li className="card-text">{element.name}<span className="quantity-right">{element.quantity}</span></li>
                             <p className="extras">extras: {e}</p>
                           </div>
                         )
