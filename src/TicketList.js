@@ -23,7 +23,7 @@ class TicketList extends Component {
   }
 
   fetchTickets() {
-    return axios.get('http://localhost:9007/tickets').then(result => {
+    return axios.get('https://irequest-be.herokuapp.com/tickets').then(result => {
       // console.log(result)
       this.setState({tickets: result.data})
     }).catch(console.log)
@@ -45,26 +45,26 @@ return this.genFilter(firstRun,prop2,boole)()}
 }
 
   fetchViewtics() {
-    return axios.get('http://localhost:9007/tickets/viewed').then(result => {
+    return axios.get('https://irequest-be.herokuapp.com//tickets/viewed').then(result => {
       // console.log(result)
       this.setState({tickets: result.data})
     }).catch(console.log)
   }
 
   fetchDoneTics() {
-    return axios.get('http://localhost:9007/tickets/done').then(result => {
+    return axios.get('https://irequest-be.herokuapp.com//tickets/done').then(result => {
       this.setState({tickets: result.data})
     }).catch(console.log)
   }
 
   fetchCancelledTics() {
-    return axios.get('http://localhost:9007/tickets/canceled').then(result => {
+    return axios.get('https://irequest-be.herokuapp.com//tickets/canceled').then(result => {
       this.setState({tickets: result.data})
     }).catch(console.log)
   }
 
   fetchArchivedTics() {
-    return axios.get('http://localhost:9007/tickets/archieved').then(result => {
+    return axios.get('https://irequest-be.herokuapp.com//tickets/archieved').then(result => {
       this.setState({tickets: result.data})
     }).catch(console.log)
   }
@@ -119,7 +119,7 @@ return this.genFilter(firstRun,prop2,boole)()}
 
   updateViewData(id) {
     const trueId = id.toString()
-    return axios.put(`http://localhost:9007/tickets/${trueId}?isViewed=true`).then(res => {
+    return axios.put(`https://irequest-be.herokuapp.com//tickets/${trueId}?isViewed=true`).then(res => {
       // console.log(res)
     }).catch(console.log)
   };

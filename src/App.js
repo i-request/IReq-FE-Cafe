@@ -19,7 +19,6 @@ class App extends Component {
       <Router>
         <div>
           <NavBar/>
-          <Redirect from="/" to="/pending-tickets"/>
           <Route path="/pending-tickets" component={PendingTickets}/>
           <Route path="/all-tickets" component={AllTickets}/>
           <Route path="/all-viewed" component={AllViewed}/>

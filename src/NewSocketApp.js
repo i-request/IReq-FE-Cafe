@@ -8,7 +8,7 @@ import {
     socketConnect,
   } from 'socket.io-react';
 
-  var socket = require('socket.io-client')('http://localhost:9007');
+  var socket = require('socket.io-client')('https://irequest-be.herokuapp.com/');
   socket.on('introduction', function(data){
     console.log(data)
   });

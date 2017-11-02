@@ -37,7 +37,7 @@ class Admin extends Component {
   }
 
   fetchProducts() {
-    return axios.get('http://localhost:9007/products')
+    return axios.get('https://irequest-be.herokuapp.com/products')
       .then(res => {
         // console.log(res.data)
         this.setState({ products: res.data })
@@ -52,7 +52,7 @@ class Admin extends Component {
     let newSelected = Object.assign({}, this.state.selectedItem, { inStock: !this.state.selectedItem.inStock })
     this.setState({ selectedItem: newSelected })
     console.log(bool)
-    return axios.put(`http://localhost:9007/products/${this.state.selectedItem._id}?inStock=${!bool}`)
+    return axios.put(`https://irequest-be.herokuapp.com/products/${this.state.selectedItem._id}?inStock=${!bool}`)
       .then(console.log("DONE!!!"))
       .catch(console.log)
   }
@@ -85,12 +85,12 @@ class Admin extends Component {
    let id = this.state.selectedItem._id
    let numPrice = Number(price)
     this.setState({ selectedItem: { name: name, price: price, description: description }})
-    return axios.put(`http://localhost:9007/products/${id}?name=${name}`)
+    return axios.put(`https://irequest-be.herokuapp.com/products/${id}?name=${name}`)
     .then(()=> {
-    return axios.put(`http://localhost:9007/products/${id}?price=${numPrice}`)
+    return axios.put(`https://irequest-be.herokuapp.com/products/${id}?price=${numPrice}`)
     })
     .then(() => {
-      return axios.put(`http://localhost:9007/products/${id}?description=${description}`)
+      return axios.put(`https://irequest-be.herokuapp.com/products/${id}?description=${description}`)
     })
     .catch(console.log)
   }
@@ -99,7 +99,7 @@ class Admin extends Component {
     // let id = this.state.selectedItem._id
     // let numPrice = Number(price)
      this.setState({ selectedItem: {} })
-     return axios.post(`http://localhost:9007/products/`)
+     return axios.post(`https://irequest-be.herokuapp.com/products/`)
      .then(console.log("DONE!!!"))
      .catch(console.log)
    }
