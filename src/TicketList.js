@@ -119,14 +119,14 @@ return this.genFilter(firstRun,prop2,boole)()}
 
   updateViewData(id) {
     const trueId = id.toString()
-    return axios.put(`https://irequest-be.herokuapp.com//tickets/${trueId}?isViewed=true`).then(res => {
+    return axios.put(`https://irequest-be.herokuapp.com/tickets/${trueId}?isViewed=true`).then(res => {
       // console.log(res)
     }).catch(console.log)
   };
 
   updateDoneData(id, bool) {
     const trueId = id.toString()
-    return axios.put(`http://localhost:9007/tickets/${trueId}?isComplete=${bool}`).then(result => {
+    return axios.put(`https://irequest-be.herokuapp.com/tickets/${trueId}?isComplete=${bool}`).then(result => {
       // console.log(result)
     }).catch(console.log)
   };
