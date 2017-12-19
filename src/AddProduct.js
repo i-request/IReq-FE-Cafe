@@ -58,7 +58,7 @@ class AddProduct extends Component {
       extras: addedExtras
     });
 
-   axios.post('http://localhost:9007/products',  newProduct )
+   axios.post('https://irequest-be.herokuapp.com/products',  newProduct )
    .then(response=>{
      console.log(response)
    })
