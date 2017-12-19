@@ -45,26 +45,26 @@ return this.genFilter(firstRun,prop2,boole)()}
 }
 
   fetchViewtics() {
-    return axios.get('https://irequest-be.herokuapp.com//tickets/viewed').then(result => {
+    return axios.get('https://irequest-be.herokuapp.com/tickets/viewed').then(result => {
       // console.log(result)
       this.setState({tickets: result.data})
     }).catch(console.log)
   }
 
   fetchDoneTics() {
-    return axios.get('https://irequest-be.herokuapp.com//tickets/done').then(result => {
+    return axios.get('https://irequest-be.herokuapp.com/tickets/done').then(result => {
       this.setState({tickets: result.data})
     }).catch(console.log)
   }
 
   fetchCancelledTics() {
-    return axios.get('https://irequest-be.herokuapp.com//tickets/canceled').then(result => {
+    return axios.get('https://irequest-be.herokuapp.com/tickets/canceled').then(result => {
       this.setState({tickets: result.data})
     }).catch(console.log)
   }
 
   fetchArchivedTics() {
-    return axios.get('https://irequest-be.herokuapp.com//tickets/archieved').then(result => {
+    return axios.get('https://irequest-be.herokuapp.com/tickets/archieved').then(result => {
       this.setState({tickets: result.data})
     }).catch(console.log)
   }
