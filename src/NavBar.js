@@ -15,7 +15,7 @@ class NavBar extends Component {
   }
 
   fetchProducts() {
-    return axios.get('http://localhost:9007/tickets').then(res => {
+    return axios.get('https://irequest-be.herokuapp.com/tickets').then(res => {
       this.setState({data: res.data})
     }).catch(console.log)
   }
